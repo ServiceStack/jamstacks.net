@@ -31,7 +31,7 @@ a copy of its static UI generated assets and hosted on:
 
 ### GitHub Pages CDN
 
-### [jamstacks.net](https://jamstacks.net)
+### [*.jamstacks.net](https://jamstacks.net)
 
 This is an optional deployment step which publishes a copy of your .NET App's `/wwwroot` folder to this templates
 [gh-pages]https://github.com/NetCoreTemplates/vue-ssg/tree/gh-pages) branch where it's automatically served from
