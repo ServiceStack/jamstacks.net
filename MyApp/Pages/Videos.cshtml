@@ -16,11 +16,18 @@
 @await Html.PartialAsync("VideoIncludes")
 
 @await Html.PartialAsync("VideoGroup", new Shared.VideoGroup {
-  Title = "Razor Vue Project Templates",
-  Summary = "Get Started quickly with your preferred Razor & Vue project template",
+  Title = "Jamstack Project Templates",
+  Summary = "Get Started quickly with your preferred Jamstack project template",
   Group = "projects",
   LearnMore = "https://docs.servicestack.net/templates-overview",
-           Background = "bg-slate-100 dark:bg-slate-800",
+})
+
+@await Html.PartialAsync("VideoGroup", new Shared.VideoGroup {
+  Title = "Blazor WASM and Server Templates",
+  Summary = "Learn about Blazor with ServiceStack's ideal development workflow without compromise",
+  Group = "blazor",
+  LearnMore = "https://servicestack.net/blazor",
+  Background = "bg-slate-100 dark:bg-slate-800",
 })
 
 @await Html.PartialAsync("VideoGroup", new Shared.VideoGroup {

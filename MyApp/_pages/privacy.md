@@ -1,69 +1,93 @@
 ---
-title: Privacy Policy 
+title: Privacy Policy for ServiceStack, Inc
+layout: _LayoutContent
 ---
 
-[Your business name] is committed to providing quality services to you and this policy outlines our ongoing obligations to you in respect of how we manage your Personal Information.
+At ServiceStack Website, accessible from https://servicestack.net, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by ServiceStack Website and how we use it.
 
-We have adopted the Australian Privacy Principles (APPs) contained in the Privacy Act 1988 (Cth) (the Privacy Act). The NPPs govern the way in which we collect, use, disclose, store, secure and dispose of your Personal Information.
+If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
 
-A copy of the Australian Privacy Principles may be obtained from the website of The Office of the Australian Information Commissioner at https://www.oaic.gov.au/.
+This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in ServiceStack Website. This policy is not applicable to any information collected offline or via channels other than this website.
 
-What is Personal Information and why do we collect it?
-Personal Information is information or an opinion that identifies an individual. Examples of Personal Information we collect includes names, addresses, email addresses, phone and facsimile numbers.
+### Consent
+By using our website, you hereby consent to our Privacy Policy and agree to its terms.
 
-This Personal Information is obtained in many ways including [interviews, correspondence, by telephone and facsimile, by email, via our website www.yourbusinessname.com.au, from your website, from media and publications, from other publicly available sources, from cookies- delete all that aren’t applicable] and from third parties. We don’t guarantee website links or policy of authorised third parties.
+### Information we collect
+The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
 
-We collect your Personal Information for the primary purpose of providing our services to you, providing information to our clients and marketing. We may also use your Personal Information for secondary purposes closely related to the primary purpose, in circumstances where you would reasonably expect such use or disclosure. You may unsubscribe from our mailing/marketing lists at any time by contacting us in writing.
+If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.
 
-When we collect Personal Information we will, where appropriate and where possible, explain to you why we are collecting the information and how we plan to use it.
+When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.
 
-Sensitive Information
-Sensitive information is defined in the Privacy Act to include information or opinion about such things as an individual's racial or ethnic origin, political opinions, membership of a political association, religious or philosophical beliefs, membership of a trade union or other professional body, criminal record or health information.
+### How we use your information
+We use the information we collect in various ways, including to:
 
-Sensitive information will be used by us only:
+- Provide, operate, and maintain our website
+- Improve, personalize, and expand our website
+- Understand and analyze how you use our website
+- Develop new products, services, features, and functionality
+- Find and prevent fraud
+- Send you emails, directly, for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes
 
-- For the primary purpose for which it was obtained
+### Newsletters
+We offer electronic newsletters which you may voluntarily subscribe to. You may choose to stop receiving our newsletter or marketing emails
+by following the unsubscribe instructions included in these emails or by contacting us. However, you will continue to receive essential emails.
 
-- For a secondary purpose that is directly related to the primary purpose
+### Sharing your information with other entities
+We will not share your personal information with third parties, except as necessary for our legitimate professional and business needs,
+to carry out your requests, and/or as required or permitted by law or professional standards.
 
-- With your consent; or where required or authorised by law.
+### Log Files
+ServiceStack Website follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
 
-Third Parties
-Where reasonable and practicable to do so, we will collect your Personal Information only from you. However, in some circumstances we may be provided with information by third parties. In such a case we will take reasonable steps to ensure that you are made aware of the information provided to us by the third party.
+### Cookies and Web Beacons
+Like any other website, ServiceStack Website uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
 
-Disclosure of Personal Information
-Your Personal Information may be disclosed in a number of circumstances including the following:
+For more general information on cookies, please read ["What Are Cookies"](https://www.privacypolicyonline.com/what-are-cookies/).
 
-- Third parties where you consent to the use or disclosure; and
+### Advertising Partners Privacy Policies
+You may consult this list to find the Privacy Policy for each of the advertising partners of ServiceStack Website.
 
-- Where required or authorised by law.
+Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on ServiceStack Website, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
 
-Security of Personal Information
-Your Personal Information is stored in a manner that reasonably protects it from misuse and loss and from unauthorized access, modification or disclosure.
+Note that ServiceStack Website has no access to or control over these cookies that are used by third-party advertisers.
 
-When your Personal Information is no longer needed for the purpose for which it was obtained, we will take reasonable steps to destroy or permanently de-identify your Personal Information. However, most of the Personal Information is or will be stored in client files which will be kept by us for a minimum of 7 years.
+### Third Party Privacy Policies
+ServiceStack Website's Privacy Policy does not apply to other advertisers or websites.
+Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
+It may include their practices and instructions about how to opt-out of certain options.
 
-Access to your Personal Information
-You may access the Personal Information we hold about you and to update and/or correct it, subject to certain exceptions. If you wish to access your Personal Information, please contact us in writing.
+You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
 
-[Your business name] will not charge any fee for your access request, but may charge an administrative fee for providing a copy of your Personal Information.
+### CCPA Privacy Rights (Do Not Sell My Personal Information)
+Under the CCPA, among other rights, California consumers have the right to:
 
-In order to protect your Personal Information we may require identification from you before releasing the requested information.
+Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.
 
-Maintaining the Quality of your Personal Information
-It is an important to us that your Personal Information is up to date. We  will  take reasonable steps to make sure that your Personal Information is accurate, complete and up-to-date. If you find that the information we have is not up to date or is inaccurate, please advise us as soon as practicable so we can update our records and ensure we can continue to provide quality services to you.
+Request that a business delete any personal data about the consumer that a business has collected.
 
-Policy Updates
-This Policy may change from time to time and is available on our website.
+Request that a business that sells a consumer's personal data, not sell the consumer's personal data.
 
-Privacy Policy Complaints and Enquiries
-If you have any queries or complaints about our Privacy Policy please contact us at:
+If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
 
+### GDPR Data Protection Rights
+We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
 
-[Your business address]
+The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.
 
-[Your business email address]
+The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.
 
-[Your business phone number]
+The right to erasure – You have the right to request that we erase your personal data, under certain conditions.
 
- 
+The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.
+
+The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.
+
+The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.
+
+If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+
+### Children's Information
+Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+
+ServiceStack Website does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.

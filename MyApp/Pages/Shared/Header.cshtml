@@ -2,10 +2,7 @@
     <div class="flex flex-wrap items-center">
         <div class="absolute z-10 top-2 left-2 sm:static flex-shrink flex-grow-0">
             <div class="cursor-pointer">
-                <a class="navbar-brand flex items-center" href="./">
-                    <svg class="w-8 h-8 sm:ml-2 sm:w-12 sm:h-12" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M10 6c1.544 1.76 2.276 4.15 2.217 6.61c3.968 1.67 9.924 6.12 11.181 12.39H28C26.051 14.31 14.918 6.77 10 6zm-2 7c4.67 4.913.81 11.582-4 12h18.97C21.5 18.289 11.95 13.533 8 13z"/></svg>
-                    <span class="hidden sm:block text-2xl font-semibold">MyApp</span>
-                </a>
+                <a aria-current="page" href="/" class="router-link-active router-link-exact-active"><div class="p-4 cursor-pointer flex"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" class="w-8 h-8 mr-2 mt-0.5" alt="Jamstacks logo"><path d="M128 0C57.221 0 0 57.221 0 128c0 70.778 57.221 128 128 128c70.778 0 128-57.222 128-128V0H128z" fill="#F0047F"></path><path d="M121.04 134.96v93.312c-49.663-2.837-89.64-42.345-93.215-91.81l-.097-1.502h93.312zm90.962 0c-2.6 49.664-38.816 89.64-84.159 93.215l-1.377.097V134.96h85.536zm.112-91.074v85.648h-85.648V43.886h85.648z" fill="#FFF"></path></svg><span class="text-3xl font-bold">Jamstacks</span><div><div class="ml-2 text-xl bg-purple-600 text-white py-0.5 px-1.5 rounded">.NET</div></div></div></a>
             </div>
         </div>
         <div class="flex flex-grow flex-shrink flex-nowrap justify-end items-center">
@@ -21,14 +18,9 @@
                                 </a>
                             </li>
                         }
-                        RenderNavLink("whatsnew", "What's New");
                         RenderNavLink("videos", "Videos");
-                        RenderNavLink("creatorkit/", "Creator Kit");
                         RenderNavLink("blog", "Blog");
                         RenderNavLink("posts/", "Archive");
-                        RenderNavLink("speaking", "Speaking");
-                        RenderNavLink("uses", "Uses");
-                        RenderNavLink("about", "About");
                     }
                     <li class="relative flex flex-wrap just-fu-start m-0">
                         <div data-component="DarkModeToggle" class="ml-2 w-10"></div>

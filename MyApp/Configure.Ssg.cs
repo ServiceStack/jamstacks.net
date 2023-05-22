@@ -11,7 +11,6 @@ public class ConfigureSsg : IHostingStartup
         {
             services.AddSingleton<RazorPagesEngine>();
             services.AddSingleton<MarkdownPages>();
-            services.AddSingleton<MarkdownWhatsNew>();
             services.AddSingleton<MarkdownVideos>();
             services.AddSingleton<MarkdownBlog>();
             services.AddSingleton<MarkdownMeta>();
@@ -21,18 +20,16 @@ public class ConfigureSsg : IHostingStartup
             afterPluginsLoaded: appHost =>
             {
                 var pages = appHost.Resolve<MarkdownPages>();
-                var whatsNew = appHost.Resolve<MarkdownWhatsNew>();
                 var videos = appHost.Resolve<MarkdownVideos>();
                 var blogPosts = appHost.Resolve<MarkdownBlog>();
                 var meta = appHost.Resolve<MarkdownMeta>();
                 
-                meta.Features = new() { pages, whatsNew, videos, blogPosts };
+                meta.Features = new() { pages, videos, blogPosts };
                 meta.Features.ForEach(x => x.VirtualFiles = appHost.VirtualFiles);
 
                 blogPosts.Authors = Authors;
 
                 pages.LoadFrom("_pages");
-                whatsNew.LoadFrom("_whatsnew");
                 videos.LoadFrom("_videos");
                 blogPosts.LoadFrom("_posts");
             },
@@ -57,21 +54,18 @@ public class ConfigureSsg : IHostingStartup
                 });
             });
 
-    public List<AuthorInfo> Authors { get; } = new() 
-    {
-        new AuthorInfo("Lucy Bates", "img/authors/author1.svg")
+    public List<AuthorInfo> Authors { get; } = new() {
+        new("Demis Bellot", "/img/authors/demis.jpg")
         {
-            TwitterUrl = "https://twitter.com/lucy",
-            GitHubUrl = "https://github.com/lucy",
+            GitHubUrl = "https://github.com/mythz",
+            TwitterUrl = "https://twitter.com/demisbellot",
         },
-        new AuthorInfo("Gayle Smith", "img/authors/author2.svg")
+        new("Darren Reid", "/img/authors/darren.jpg")
         {
-            TwitterUrl = "https://twitter.com/gayle",
+            GitHubUrl = "https://github.com/layoric",
+            TwitterUrl = "https://twitter.com/layoric",
         },
-        new AuthorInfo("Brandon Foley", "img/authors/author3.svg")
-        {
-            GitHubUrl = "https://github.com/brandon",
-        },
+        new AuthorInfo("Lucy Bates", "/img/authors/author1.svg"),
     };
 }
 
