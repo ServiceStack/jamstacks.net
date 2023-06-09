@@ -123,10 +123,18 @@
 })
 
 @await Html.PartialAsync("VideoGroup", new Shared.VideoGroup {
+  Title = "CreatorKit",
+  Summary = "Open Source self-hosted alternative to Mailchimp and Disqus",
+  Group = "creatorkit",
+  LearnMore = "https://servicestack.net/creatorkit/",
+})
+
+@await Html.PartialAsync("VideoGroup", new Shared.VideoGroup {
   Title = "Vue Components",
   Summary = "Learn about productive features in our growing Vue Component Library",
   Group = "vue",
   LearnMore = "https://docs.servicestack.net/vue/",
+  Background = "bg-slate-100 dark:bg-slate-800",
 })
 
 <div class="flex justify-center my-20">
