@@ -10,10 +10,34 @@
     </image>
     <generator>razor-ssg</generator>
     <copyright></copyright>
-    <lastBuildDate>Tue, 01 Aug 2023 11:14:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Aug 2023 12:02:03 GMT</lastBuildDate>
     <managingEditor>team@servicestack.net (Team ServiceStack)</managingEditor>
     <webMaster>team@servicestack.net (Team ServiceStack)</webMaster>
     <atom:link href="https://servicestack.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+        <title>Introducing Razor Press</title>
+        <link>https://servicestack.net/posts/razor-press</link>
+        <author>demis@servicestack.com (Demis Bellot)</author>
+        <guid isPermaLink="false">https://servicestack.net/posts/razor-press</guid>
+        <pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-07-17T00:00:00Z</atom:updated>
+        <category>razor</category>
+        <category>markdown</category>
+        <category>blog</category>
+        <category>dev</category>
+        <description>Markdown &amp; Razor Pages Static Site Generator for beautiful fast Content &amp; Documentation</description>
+    </item>
+    <item>
+        <title>Vue Stable Diffusion</title>
+        <link>https://servicestack.net/posts/vue-stable-diffusion</link>
+        <author>demis@servicestack.com (Demis Bellot)</author>
+        <guid isPermaLink="false">https://servicestack.net/posts/vue-stable-diffusion</guid>
+        <pubDate>Thu, 15 Jun 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-06-15T00:00:00Z</atom:updated>
+        <category>vue</category>
+        <category>tailwind</category>
+        <description>Rewriting Blazor Diffussion image generation &amp; album catalog in Vue &amp; Razor SSG</description>
+    </item>
     <item>
         <title>Introducing CreatorKit</title>
         <link>https://servicestack.net/posts/creatorkit</link>

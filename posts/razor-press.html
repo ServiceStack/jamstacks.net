@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://servicestack.net/feed.xml" />
-    <title>Develop using Visual Studio</title>
+    <title>Introducing Razor Press</title>
     <base href="/" />
     <script>
     if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
@@ -33,10 +33,10 @@
     <meta name="twitter:site" content="@ServiceStack" />
     <meta name="twitter:creator" content="@demisbellot" />
     <meta name="twitter:card" content="summary" />
-    <meta property="og:description" content="Exploring development workflow in VS Code and Visual Studio .NET" />
-    <meta property="og:url" content="https://servicestack.net/posts/vs" />
-    <meta property="og:title" content="Develop using Visual Studio" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" />
+    <meta property="og:description" content="Markdown &amp; Razor Pages Static Site Generator for beautiful fast Content &amp; Documentation" />
+    <meta property="og:url" content="https://servicestack.net/posts/razor-press" />
+    <meta property="og:title" content="Introducing Razor Press" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1681301968680-fe46a0cd51be?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" />
 
 
 </head>
@@ -93,7 +93,7 @@ mountAll()
 <div class="container px-5 mb-32 mx-auto">
         <article class="mt-20">
             <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
-                Develop using Visual Studio
+                Introducing Razor Press
             </h1>
             <div class="flex justify-between">
                 <div class="md:mb-12 flex items-center">
@@ -129,67 +129,170 @@ mountAll()
             </div>
             <div class="mb-8 md:mb-16 sm:mx-0">
                 <div class="sm:mx-0">
-                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" alt="Develop using Visual Studio Background" class="shadow-small">
+                    <img src="https://images.unsplash.com/photo-1681301968680-fe46a0cd51be?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" alt="Introducing Razor Press Background" class="shadow-small">
                 </div>
             </div>
             <div class="mb-4 max-w-3xl mx-auto flex flex-wrap">
-                    <a href="posts/tagged/csharp" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">c#</a>
+                    <a href="posts/tagged/razor" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">razor</a>
+                    <a href="posts/tagged/markdown" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">markdown</a>
+                    <a href="posts/tagged/blog" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">blog</a>
                     <a href="posts/tagged/dev" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">dev</a>
             </div>
                 <div class="max-w-3xl mx-auto">
                     <div class="mb-6 text-lg text-gray-500">
-                        <time datetime="2023-01-10T00:00:00.0000000">January 10, 2023</time>
+                        <time datetime="2023-07-17T00:00:00.0000000">July 17, 2023</time>
                         <span aria-hidden="true">&middot;</span>
-                        <span>6 min read</span>
+                        <span>5 min read</span>
                     </div>
                 </div>
             <div class="max-w-3xl mx-auto">
                 <div id="post" class="prose lg:prose-xl max-w-none mb-32">
-                    <p>A popular alternative development environment to our preferred <a href="rider">JetBrains Rider</a> IDE is to use
-Visual Studio, the primary issue with this is that VS Code is a better IDE with richer support for JavaScript and npm
-projects whilst Visual Studio is a better IDE for C# Projects.</p>
-<p>Essentially this is why we recommend Rider where it's best at both, where both C# and JS/TypeScript projects can
-be developed from within the same solution.</p>
-<h3 id="developing-with-just-vs-code">Developing with just VS Code<a class="header-anchor" href="javascript:;" onclick="location.hash='#developing-with-just-vs-code'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
-<a href="https://visualstudio.microsoft.com/" title="VS Code" class="sm:float-left mr-8">
-    <svg class="w-24 h-24" style="margin-top:1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 254"><defs><linearGradient id="logosVisualStudioCode0" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FFF"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/></linearGradient><path id="logosVisualStudioCode1" d="M180.828 252.605a15.872 15.872 0 0 0 12.65-.486l52.501-25.262a15.94 15.94 0 0 0 9.025-14.364V41.197a15.939 15.939 0 0 0-9.025-14.363l-52.5-25.263a15.877 15.877 0 0 0-18.115 3.084L74.857 96.35l-43.78-33.232a10.614 10.614 0 0 0-13.56.603L3.476 76.494c-4.63 4.211-4.635 11.495-.012 15.713l37.967 34.638l-37.967 34.637c-4.623 4.219-4.618 11.502.012 15.714l14.041 12.772a10.614 10.614 0 0 0 13.56.604l43.78-33.233l100.507 91.695a15.853 15.853 0 0 0 5.464 3.571Zm10.464-183.649l-76.262 57.889l76.262 57.888V68.956Z"/></defs><mask id="logosVisualStudioCode2" fill="#fff"><use href="#logosVisualStudioCode1"/></mask><path fill="#0065A9" d="M246.135 26.873L193.593 1.575a15.885 15.885 0 0 0-18.123 3.08L3.466 161.482c-4.626 4.219-4.62 11.502.012 15.714l14.05 12.772a10.625 10.625 0 0 0 13.569.604L238.229 33.436c6.949-5.271 16.93-.315 16.93 8.407v-.61a15.938 15.938 0 0 0-9.024-14.36Z" mask="url(#logosVisualStudioCode2)"/><path fill="#007ACC" d="m246.135 226.816l-52.542 25.298a15.887 15.887 0 0 1-18.123-3.08L3.466 92.207c-4.626-4.218-4.62-11.502.012-15.713l14.05-12.773a10.625 10.625 0 0 1 13.569-.603l207.132 157.135c6.949 5.271 16.93.315 16.93-8.408v.611a15.939 15.939 0 0 1-9.024 14.36Z" mask="url(#logosVisualStudioCode2)"/><path fill="#1F9CF0" d="M193.428 252.134a15.892 15.892 0 0 1-18.125-3.083c5.881 5.88 15.938 1.715 15.938-6.603V11.273c0-8.318-10.057-12.483-15.938-6.602a15.892 15.892 0 0 1 18.125-3.084l52.533 25.263a15.937 15.937 0 0 1 9.03 14.363V212.51c0 6.125-3.51 11.709-9.03 14.363l-52.533 25.262Z" mask="url(#logosVisualStudioCode2)"/><path fill="url(#logosVisualStudioCode0)" fill-opacity=".25" d="M180.828 252.605a15.874 15.874 0 0 0 12.65-.486l52.5-25.263a15.938 15.938 0 0 0 9.026-14.363V41.197a15.939 15.939 0 0 0-9.025-14.363L193.477 1.57a15.877 15.877 0 0 0-18.114 3.084L74.857 96.35l-43.78-33.232a10.614 10.614 0 0 0-13.56.603L3.476 76.494c-4.63 4.211-4.635 11.495-.012 15.713l37.967 34.638l-37.967 34.637c-4.623 4.219-4.618 11.502.012 15.714l14.041 12.772a10.614 10.614 0 0 0 13.56.604l43.78-33.233l100.506 91.695a15.857 15.857 0 0 0 5.465 3.571Zm10.464-183.65l-76.262 57.89l76.262 57.888V68.956Z" mask="url(#logosVisualStudioCode2)"/></svg>
-</a>
-<p>If you prefer the dev UX of a lightweight text editor or your C# project isn't large, than VS Code on its own
-can provide a great development UX which is also what <a href="https://v3.vuejs.org/api/sfc-tooling.html#ide-support">Vue recommends themselves</a>,
-to be used together with the <a href="https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar">Volar extension</a>.</p>
-<p>VSCode's <a href="https://code.visualstudio.com/docs/editor/integrated-terminal">Integrated Terminal</a> has great multi-terminal
-support you can toggle between the editor and terminal with <code>Ctrl+</code> or open a new Terminal Window with
-<code>Ctrl+Shift+`</code> to run Tailwind with:</p>
-<pre><code class="language-bash">$ npm run ui:dev
-</code></pre>
-<p>Then in a new Terminal Window, start a new watched .NET App with:</p>
-<pre><code class="language-bash">$ dotnet watch
-</code></pre>
-<p>With both projects started you can open a browser tab running at <code>https://localhost:5001</code> where it
-will automatically reload itself at every <code>Ctrl+S</code> save point.</p>
-<h4 id="useful-vs-code-extensions">Useful VS Code extensions<a class="header-anchor" href="javascript:;" onclick="location.hash='#useful-vs-code-extensions'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
-<p>We recommend these extensions below to enhance the development experience of this template:</p>
+                    <p>In a nutshell the new Razor Press template is a Simple, Powerful, Fast, Flexible &amp; FREE! Use Razor Pages to generate
+beautiful Tailwind static websites powered by Markdown &amp; enhanced with Vue Auto deploys to GitHub Pages to Host
+for FREE on GitHub CDN</p>
+<div class="flex justify-center">
+    <lite-youtube class="w-full mx-4 my-4" width="560" height="315" videoid="uqEa_DfFFDQ" style="background-image: url('https://img.youtube.com/vi/uqEa_DfFFDQ/maxresdefault.jpg')"></lite-youtube>
+</div>
+<p>After having finished porting <a href="/posts/new_razor_ssg_docs">docs.servicestack.net to Razor SSG</a>, we've extracted the core
+functionality useful for documentation and content centric websites into a reusable project template you can create
+with the <a href="https://docs.servicestack.net/dotnet-tool">x dotnet tool</a>:</p>
+<div class="not-prose sh-copy cp flex cursor-pointer mb-3" onclick="copy(this)">
+                <div class="flex-grow bg-gray-800">
+                    <div class="pl-4 py-1 pb-1.5 align-middle whitespace-pre text-base text-gray-100"><p>x new razor-press ProjectName</p>
+</div>
+                    </div>
+                <div class="flex">
+                    <div class="bg-green-600 text-white p-1.5 pb-0">
+                        <svg class="copied w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="nocopy w-6 h-6" title="copy" fill='none' stroke='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2'></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+<h2 id="what-is-razor-press">What is Razor Press?<a class="header-anchor" href="javascript:;" onclick="location.hash='#what-is-razor-press'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>Razor Press is a Razor Pages powered Markdown alternative to Ruby's Jekyll, Vue &amp; VitePress that's ideal for
+generating fast, static content-centric &amp; documentation websites. Inspired by <a href="https://vitepress.dev">VitePress</a>,
+it's designed to effortlessly create documentation around content written in Markdown, rendered using C# Razor Pages
+and beautifully styled with <a href="https://tailwindcss.com">tailwindcss</a> and <a href="https://tailwindcss.com/docs/typography-plugin">@tailwindcss/typography</a>.</p>
+<p>The resulting statically generated HTML pages can easily be deployed anywhere, where it can be hosted by any HTTP Server or CDN.
+By default it includes GitHub Actions to deploy it your GitHub Repo's <strong>gh-pages</strong> branch where it's hosted for FREE
+on <a href="https://pages.github.com">GitHub Pages</a> CDN which can be easily configured to use your
+<a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">Custom Domain</a>.</p>
+<h2 id="use-cases">Use Cases<a class="header-anchor" href="javascript:;" onclick="location.hash='#use-cases'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>Razor Press utilizes the same technology as
+<a href="https://razor-ssg.web-templates.io/posts/razor-ssg">Razor SSG</a> which is the template we recommend for developing any
+statically generated sites with Razor like Blogs, Portfolios, and Marketing Sites as it includes more Razor &amp; Markdown
+features like blogs and integration with <a href="https://servicestack.net/creatorkit/">Creator Kit</a> - a companion OSS project
+offers the necessary tools any static website can use to reach and retain users, from managing subscriber mailing lists to
+moderating a feature-rich comments system.</p>
+<p>Some examples built with Razor SSG include:</p>
+<div class="not-prose mt-8 grid grid-cols-2 gap-4">
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700 flex flex-col justify-between" href="https://servicestack.net">
+        <img class="p-2" src="https://docs.servicestack.net/img/pages/ssg/servicestack.net-home-1440.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">servicestack.net</div>
+    </a>
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://diffusion.works">
+        <div style="max-height:350px;overflow:hidden">
+        <img class="p-2" src="https://servicestack.net/img/posts/vue-diffusion/vuediffusion-search.png"></div>
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">diffusion.works</div>
+    </a>
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://jamstacks.net">
+        <img class="p-2" src="https://docs.servicestack.net/img/pages/release-notes/v6.9/jamstacks-screenshot.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">jamstacks.net</div>
+    </a>
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://xkcd.netcore.io">
+        <img class="p-2" src="https://docs.servicestack.net/img/pages/release-notes/v6.9/xkcd-screenshot.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">xkcd.netcore.io</div>
+    </a>
+</div>
+<h2 id="documentation">Documentation<a class="header-anchor" href="javascript:;" onclick="location.hash='#documentation'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>Razor Press is instead optimized for creating documentation and content-centric websites, with built-in features useful
+for documentation websites including:</p>
 <ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</a> - Add Intellisense for Tailwind classes</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html">es6-string-html</a> - Add HTML Syntax Highlighting in string literals</li>
+<li>Customizable Sidebar Menus</li>
+<li>Document Maps</li>
+<li>Document Page Navigation</li>
+<li>Autolink Headers</li>
 </ul>
-<h3 id="using-visual-studio">Using Visual Studio<a class="header-anchor" href="javascript:;" onclick="location.hash='#using-visual-studio'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
-<a href="https://code.visualstudio.com/" title="Visual Studio" class="sm:float-left mr-8">
-    <svg class="w-24 h-24" style="margin-top:1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="logosVisualStudio0" x1="50%" x2="50%" y1=".002%" y2="100%"><stop offset="0%" stop-color="#FFF"/><stop offset="100%" stop-color="#FFF" stop-opacity="0"/></linearGradient></defs><path fill="#52218A" d="M36.987 200.406a10.667 10.667 0 0 1-11.04 1.734L6.56 194.006A10.667 10.667 0 0 1 0 184.22V70.46a10.667 10.667 0 0 1 6.56-9.787l19.387-8a10.667 10.667 0 0 1 11.04 1.733l4.346 3.6a5.893 5.893 0 0 0-9.333 4.8v129.067a5.893 5.893 0 0 0 9.333 4.8l-4.346 3.733Z"/><path fill="#6C33AF" d="M6.56 194.006A10.667 10.667 0 0 1 0 184.22v-.88a6.16 6.16 0 0 0 10.667 4.133L176 4.673a16 16 0 0 1 18.187-3.093l52.746 25.386A16 16 0 0 1 256 41.393v.613a10.107 10.107 0 0 0-16.507-7.813l-198.16 162.48l-4.346 3.733a10.667 10.667 0 0 1-11.04 1.734L6.56 194.006Z"/><path fill="#854CC7" d="M6.56 60.673A10.667 10.667 0 0 0 0 70.46v.88a6.16 6.16 0 0 1 10.667-4.134L176 250.006a16 16 0 0 0 18.187 3.094l52.746-25.387A16 16 0 0 0 256 213.286v-.613a10.107 10.107 0 0 1-16.507 7.813L41.333 58.006l-4.346-3.733a10.667 10.667 0 0 0-11.04-1.6l-19.387 8Z"/><path fill="#B179F1" d="M194.187 253.1A16 16 0 0 1 176 250.006a9.387 9.387 0 0 0 16-6.64v-232a9.387 9.387 0 0 0-16-6.693a16 16 0 0 1 18.187-3.093l52.746 25.36A16 16 0 0 1 256 41.366v171.947a16 16 0 0 1-9.067 14.427l-52.746 25.36Z"/><path fill="url(#logosVisualStudio0)" fill-opacity=".25" d="M183.707 254.273a16 16 0 0 0 10.48-1.173l52.746-25.36A16 16 0 0 0 256 213.313V41.366a16 16 0 0 0-9.067-14.426L194.187 1.58A16 16 0 0 0 182.24.806A16 16 0 0 0 176 4.673L90.987 98.7L41.333 58.006l-4.346-3.733a10.667 10.667 0 0 0-9.627-2.213a6.8 6.8 0 0 0-1.413.48L6.56 60.673A10.667 10.667 0 0 0 0 69.66v115.36a10.664 10.664 0 0 0 6.56 8.986l19.387 8a6.8 6.8 0 0 0 1.413.48c3.378.882 6.973.056 9.627-2.213l4.346-3.6l49.654-40.693L176 250.006a16 16 0 0 0 7.707 4.267ZM192 73.153l-66.107 54.187L192 181.526V73.153ZM32 90.726l33.093 36.614L32 163.953V90.726Z"/></svg>
-</a>
-<p>As your C# project grows you'll want to consider running the back-end C# Solution with Visual Studio .NET with its
-much improved intelli-sense, navigation, tests runner &amp; debug capabilities.</p>
-<p>As we've never had a satisfactory experience trying develop npm or JS/TypeScript projects with VS.NET, we'd recommend only
-using VS.NET for C# and Razor and continuing to use VSCode for everything else.</p>
-<p>If you'd prefer to use Visual Studio for front-end development we recommend moving all JS to external files for a better
-Dev UX, e.g:</p>
-<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;./Pages/SignIn.mjs&quot;&gt;&lt;/script&gt;
+<h4 id="markdown-extensions">Markdown Extensions<a class="header-anchor" href="javascript:;" onclick="location.hash='#markdown-extensions'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
+<ul>
+<li>Markdown Content Includes</li>
+<li>Tip, Info, Warning, Danger sections</li>
+<li>Copy and Shell command widgets</li>
+</ul>
+<p>But given <strong>Razor Press</strong> and <strong>Razor SSG</strong> share the same implementation, their features are easily transferable, e.g.
+The <a href="/whatsnew">What's New</a> and <a href="/videos">Videos</a> sections are
+<a href="https://razor-ssg.web-templates.io/posts/razor-ssg#whats-new-feature">features copied</a> from Razor SSG as they can be
+useful in Documentation websites.</p>
+<h2 id="custom-anchor" class="custom">Customizable<a class="header-anchor" href="javascript:;" onclick="location.hash='#custom-anchor'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>The source code of all Markdown and Razor Pages features are included in the template with all Markdown extensions
+implemented in the <a href="https://github.com/NetCoreTemplates/razor-press/tree/main/MyApp">Markdown*.cs</a> files allowing for
+easier inspection, debugging and customization.</p>
+<p>To simplify updating Markdown features in future we recommend against modifying the included <code>Markdown.*</code> files and instead
+add any Markdig pipeline extensions or custom containers using <code>MarkdigConfig</code> in <code>Configure.Ssg.cs</code>:</p>
+<pre><code class="language-csharp">MarkdigConfig.Set(new MarkdigConfig
+{
+    ConfigurePipeline = pipeline =&gt;
+    {
+        // Extend Markdig Pipeline
+    },
+    ConfigureContainers = config =&gt;
+    {
+        config.AddBuiltInContainers();
+        // Add Custom Block or Inline containers
+    }
+});
 </code></pre>
-<h3 id="deploying-to-production">Deploying to Production<a class="header-anchor" href="javascript:;" onclick="location.hash='#deploying-to-production'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
-<p>This template also includes the necessary GitHub Actions to deploy this Apps production static assets to GitHub Pages CDN,
-for more info, checkout <a href="deploy">GitHub Actions Deployments</a>.</p>
-<h3 id="get-started">Get Started<a class="header-anchor" href="javascript:;" onclick="location.hash='#get-started'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
-<p>If you're new to Vue 3 a good place to start is <a href="https://vuejs.org/api/composition-api-setup.html">Vue 3 Composition API</a>.</p>
+<h3 id="update-markdown-extensions-dependencies">Update Markdown Extensions &amp; Dependencies<a class="header-anchor" href="javascript:;" onclick="location.hash='#update-markdown-extensions-dependencies'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Updating to the latest JavaScript dependencies and Markdown extensions can be done by running:</p>
+<div class="not-prose sh-copy cp flex cursor-pointer mb-3" onclick="copy(this)">
+                <div class="flex-grow bg-gray-800">
+                    <div class="pl-4 py-1 pb-1.5 align-middle whitespace-pre text-base text-gray-100"><p>npm install</p>
+</div>
+                    </div>
+                <div class="flex">
+                    <div class="bg-green-600 text-white p-1.5 pb-0">
+                        <svg class="copied w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="nocopy w-6 h-6" title="copy" fill='none' stroke='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2'></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+<p>Which as the template has no npm dependencies, is just an alias for running <code>node postinstall.js</code></p>
+<h2 id="example">Example<a class="header-anchor" href="javascript:;" onclick="location.hash='#example'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>The largest website generated with Razor Press is currently the ServiceStack's documentation at
+<a href="https://docs.servicestack.net">docs.servicestack.net</a>:</p>
+<div class="not-prose mt-8 grid grid-cols-2 gap-4">
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://docs.servicestack.net/?light">
+        <img class="p-2" src="https://servicestack.net/img/posts/razor-ssg/docs.servicestack.net.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">docs.servicestack.net</div>
+    </a>
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://docs.servicestack.net/?dark">
+        <img class="p-2" src="https://servicestack.net/img/posts/razor-ssg/docs.servicestack.net-dark.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">docs.servicestack.net</div>
+    </a>
+</div>
+<p>A <strong>500+</strong> pages documentation website ported from VitePress, which prompted the creation of Razor Press after
+experiencing issues with VitePress's SSR/SPA model whose workaround became too time consuming to maintain.</p>
+<p>The new Razor SSG implementation now benefits from Razor Pages flexible layouts and partials where pages can be optionally
+implemented in just markdown, Razor or a hybrid mix of both. The <a href="https://docs.servicestack.net/vue//">Vue</a> splash page is an example of this implemented in a custom
+<a href="https://github.com/NetCoreTemplates/razor-press/blob/main/MyApp/Pages/Vue/Index.cshtml">/Vue/Index.cshtml</a> Razor Page.</p>
+<div class="not-prose mt-8 grid grid-cols-2 gap-4">
+    <a class="block group border dark:border-gray-800 hover:border-indigo-700 dark:hover:border-indigo-700" href="https://docs.servicestack.net/vue/">
+        <img class="p-2" src="https://docs.servicestack.net/img/pages/ssg/razor-pages-vue.png">
+        <div class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-semibold group-hover:bg-indigo-700 group-hover:text-white text-center py-2">docs.servicestack.net</div>
+    </a>
+</div>
+<h2 id="feedback-feature-requests-welcome">Feedback &amp; Feature Requests Welcome<a class="header-anchor" href="javascript:;" onclick="location.hash='#feedback-feature-requests-welcome'" aria-label="Permalink">&ZeroWidthSpace;</a></h2>
+<p>Up to this stage <a href="https://docs.servicestack.net">docs.servicestack.net</a> has been the primary driver for Razor Press
+current feature-set, re-implementing all the previous VitePress features it used with C#, Razor Pages and Markdig extensions.</p>
+<p>In future we'll look at expanding this template with generic Markdown features suitable for documentation or content-centric
+websites, for which we welcome any feedback or new feature requests at:</p>
+<div class="not-prose">
+   <h3 class="m-0 py-8 text-3xl text-center text-blue-600"><a href="https://servicestack.net/ideas">https://servicestack.net/ideas</a></h3>
+</div>
 
                 </div>
             </div>
