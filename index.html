@@ -4,9 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://servicestack.net/feed.xml" />
     <title>Jamstack .NET</title>
     <base href="/" />
     <script>
+    if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
+    if (location.search === "?light") localStorage.removeItem('color-scheme') 
     const cls = document.querySelector('html').classList
     if (localStorage.getItem('color-scheme') === 'dark')
         cls.add('dark')
@@ -26,6 +29,7 @@
     }
 }
 </script>
+    
 </head>
 <body class="bg-white dark:bg-black dark:text-white">
 <header class="border-b border-gray-200 dark:border-gray-600 pr-3">
@@ -107,6 +111,14 @@ mountAll()
                             <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue SSG</div>
                             <template #icon>
                                 <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
+                            </template>
+                        </project-template>
+                    </div>
+                    <div>
+                        <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor-press" :tags="['ssg','markdown']" :count="count('razor-press')">
+                            <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor Press</div>
+                            <template #icon>
+                                <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6v13m9-13v13m9-13v13"></path></svg>
                             </template>
                         </project-template>
                     </div>
@@ -214,6 +226,40 @@ mountAll()
 harnesses the power of .NET Razor Pages to provide seamless static site generation (SSG) capabilities</p>
 <p>With GitHub Codespaces integration, you can develop, test, and manage your application all within your browser, eliminating the need
 for a dedicated development environment and expediting your workflow, which can all be done on the go from an iPad</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="uqEa_DfFFDQ" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/uqEa_DfFFDQ/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">February 8, 2022</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">razor-pages</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">ssg</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/uqEa_DfFFDQ">
+                                            Razor Press for fast and Beautiful Documentation
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>Razor Press is a <strong>Razor Pages</strong> and <strong>Markdown</strong> powered alternative to Ruby's Jekyll &amp; Vue's VitePress
+that's ideal for generating fast, static content-centric &amp; documentation websites.
+Inspired by VitePress, it's designed to effortlessly create documentation around content written in Markdown,
+rendered using C# Razor Pages that's beautifully styled with <strong>tailwindcss</strong> and <strong>@tailwindcss/typography</strong>.</p>
+<p>Learn how Razor Press aids in the easy creation, and deployment of your statically generated sites that
+can be hosted for FREE on GitHub Pages CDN.</p>
 
                                         </div>
                                     </div>

@@ -4,9 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://servicestack.net/feed.xml" />
     <title>Video Library</title>
     <base href="/" />
     <script>
+    if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
+    if (location.search === "?light") localStorage.removeItem('color-scheme') 
     const cls = document.querySelector('html').classList
     if (localStorage.getItem('color-scheme') === 'dark')
         cls.add('dark')
@@ -26,6 +29,7 @@
     }
 }
 </script>
+    
 </head>
 <body class="bg-white dark:bg-black dark:text-white">
 <header class="border-b border-gray-200 dark:border-gray-600 pr-3">
@@ -88,12 +92,12 @@ mountAll()
 
 
 <section>
-    <div class="bg-white dark:bg-black py-24 sm:py-32">
+    <div class="bg-slate-100 dark:bg-slate-800 py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Jamstack Project Templates</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Razor Vue Project Templates</h2>
                 <p class="mt-2 text-lg leading-8 text-gray-600">
-                    Get Started quickly with your preferred Jamstack project template
+                    Get Started quickly with your preferred Razor &amp; Vue project template
                         <a href="https://docs.servicestack.net/templates-overview" class="ml-2 text-sm font-semibold leading-6">Learn more <span aria-hidden="true">→</span></a>                
                 </p>
                 <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
@@ -123,6 +127,40 @@ mountAll()
 harnesses the power of .NET Razor Pages to provide seamless static site generation (SSG) capabilities</p>
 <p>With GitHub Codespaces integration, you can develop, test, and manage your application all within your browser, eliminating the need
 for a dedicated development environment and expediting your workflow, which can all be done on the go from an iPad</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="uqEa_DfFFDQ" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/uqEa_DfFFDQ/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">February 8, 2022</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">razor-pages</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">ssg</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/uqEa_DfFFDQ">
+                                            Razor Press for fast and Beautiful Documentation
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>Razor Press is a <strong>Razor Pages</strong> and <strong>Markdown</strong> powered alternative to Ruby's Jekyll &amp; Vue's VitePress
+that's ideal for generating fast, static content-centric &amp; documentation websites.
+Inspired by VitePress, it's designed to effortlessly create documentation around content written in Markdown,
+rendered using C# Razor Pages that's beautifully styled with <strong>tailwindcss</strong> and <strong>@tailwindcss/typography</strong>.</p>
+<p>Learn how Razor Press aids in the easy creation, and deployment of your statically generated sites that
+can be hosted for FREE on GitHub Pages CDN.</p>
 
                                         </div>
                                     </div>
@@ -185,286 +223,6 @@ while employing the Jamstack architecture leveraging capabilities of Vite, Vue &
 exceptional rapid development cycle when used with JetBrains Rider.</p>
 <p>This template is specifically designed for Microsoft .NET developers seeking a seamless and efficient Next.js React
 setup while employing the better performing Jamstack architecture.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<section>
-    <div class="bg-slate-100 dark:bg-slate-800 py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-5xl">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Blazor WASM and Server Templates</h2>
-                <p class="mt-2 text-lg leading-8 text-gray-600">
-                    Learn about Blazor with ServiceStack&#x27;s ideal development workflow without compromise
-                        <a href="https://servicestack.net/blazor" class="ml-2 text-sm font-semibold leading-6">Learn more <span aria-hidden="true">→</span></a>                
-                </p>
-                <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="BcQqCzm4tK0" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/BcQqCzm4tK0/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">May 19, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/BcQqCzm4tK0">
-                                            Optimal Developer Workflow for Blazor WASM Apps
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this engaging video tutorial, we showcase the power of the ServiceStack Blazor WebAssembly (WASM) template and
-demonstrate how the combination of typed end-to-end services and Blazor is ideal for building line of business applications.</p>
-<p>Blazor WASM is a cutting-edge framework that enables developers to build full-featured, high-performance
-web applications using C# and .NET, running directly in the browser via WebAssembly.</p>
-<p>The template provides a clean separation of concerns, typed end-to-end safety, and rapid iteration,
-thanks to the shared C# language, Visual Studio Hot Reload, and ServiceStack's message-centric design.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="3gD_MMcYI-4" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/3gD_MMcYI-4/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">July 25, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/3gD_MMcYI-4">
-                                            Create Beautiful Blazor WASM Tailwind Apps
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this tutorial, we provide a walkthrough of the Blazor Web Assembly template that utilizes Tailwind CSS, and
-show you how to set up hot reload for both during development. Blazor Web Assembly is a powerful framework that allows
-developers to create high-performance web applications using C# and .NET, running directly in the browser via WebAssembly.</p>
-<p>Tailwind CSS, on the other hand, is a popular utility-first CSS framework that provides a comprehensive set of
-pre-defined CSS styles, enabling developers to create modern and responsive designs with ease.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="iKpQI2233nY" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/iKpQI2233nY/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">October 11, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> components</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/iKpQI2233nY">
-                                            RAD Blazor Tailwind Components to Rapidly Develop Beautiful Web Apps
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>The ServiceStack Blazor components for Blazor WASM and Blazor Server are a powerful set of tools that enable developers
-to quickly and easily create interactive data grids from their AutoQuery services using minimal code.</p>
-<p>With these components, developers can style their Blazor applications with Tailwind CSS, creating professional-looking,
-custom applications that meet the needs of their users. Whether you are a seasoned developer or just starting,
-this tutorial will provide valuable insights into the capabilities of the ServiceStack Blazor components, and show
-you how to leverage their features to create high-performing, intuitive applications.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="8nwpC_B4AC4" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/8nwpC_B4AC4/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">December 7, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> darkmode</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> components</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/8nwpC_B4AC4">
-                                            Beautiful Tailwind Blazor Components with Darkmode
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this video tutorial, we'll walk through the ServiceStack Blazor Components and their support for Dark Mode.
-Our Blazor Components provide a suite of powerful, pre-built UI components that are easy to use, customizable,
-and can be used to build high-performing, responsive web applications.</p>
-<p>The components are available for both Blazor Server and Blazor WASM, and are designed to work seamlessly with
-ServiceStack's message-based design, providing a simplified and intuitive developer experience.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="tt0ytzVVjEY" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/tt0ytzVVjEY/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">December 12, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> admin</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/tt0ytzVVjEY">
-                                            Create Beautiful UX optimized Blazor Apps with Auto Admin pages
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this video tutorial, we'll walk through the process of creating admin screens using ServiceStack Blazor Components.
-We'll be using our Blazor Diffusion application as an example, which is a Blazor application that generates
-AI artworks using Stable Diffusion and curates a gallery of amazing visuals.</p>
-<p>With the ServiceStack Blazor Components, we'll show you how to create a powerful and intuitive admin interface for
-managing the application data, with minimal coding required.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="66DgLHExC9E" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/66DgLHExC9E/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">January 4, 2023</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> server</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/66DgLHExC9E">
-                                            Create Universal Blazor API Components for Blazor Server and WASM
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this video tutorial, we'll walk through the process of creating universal Blazor API components for Blazor Server
-and Blazor WASM using the ServiceStack.Blazor library.</p>
-<p>By using the ServiceStack.Blazor library, developers can create UI components that can be shared between their Blazor
-applications without worrying about which hosting model is used. This allows developers to streamline their development
-process and reduce the amount of code they need to write, making it easier to build and maintain complex applications.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="fY50dWszpw4" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/fY50dWszpw4/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">August 11, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> litestream</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/fY50dWszpw4">
-                                            Blazor WASM Litestream Apps - Ultimate Performance &amp; Value combo
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this tutorial, we provide a comprehensive walkthrough of how to deploy your ServiceStack application using the
-Blazor WASM template with SQLite and Litestream to any Linux server with SSH access, Docker, and docker-compose.</p>
-<p>The Blazor WASM template is a powerful tool that allows developers to build high-performance web applications
-using C# and .NET, running directly in the browser via WebAssembly. By incorporating SQLite and Litestream,
-developers can ensure data integrity and reduce the risk of data loss in the event of a system failure or other issues.</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
-                            <div class="relative lg:w-1/2 lg:shrink-0">
-                                <lite-youtube width="560" height="315" videoid="TIgjMf_vtCI" class="border border-slate-300 dark:border-slate-600"
-                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/TIgjMf_vtCI/maxresdefault.jpg')">
-                                </lite-youtube>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-x-4 text-xs">
-                                    <time datetime="2020-03-16" class="text-gray-500">January 26, 2022</time>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> bootstrap</span>
-                                </div>
-                                <div class="group relative max-w-xl">
-                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                        <a href="https://youtu.be/TIgjMf_vtCI">
-                                            Blazor WASM Bootstrap template with dynamic user management
-                                        </a>
-                                    </h3>
-                                    <div class="mt-5 text-sm leading-6 text-gray-600">
-                                        <div class="prose">
-                                            <p>In this walkthrough, we will introduce you to the new Blazor WASM Bootstrap template, an exceptional option for
-development teams with strong C# skills who are building Line of Business (LOB) applications and seeking a
-superior developer experience.</p>
-<p>Blazor WASM is a cutting-edge framework that enables developers to build full-featured, high-performance web applications
-using C# and .NET, running directly in the browser via WebAssembly. The template comes with illustrative examples
-of a Bookings CRUD (Create, Read, Update, and Delete) system utilizing ServiceStack AutoQuery, as well as a simple
-Todo app functionality, allowing you to see how the different components of client-server communication
-can be effectively put together.</p>
 
                                         </div>
                                     </div>

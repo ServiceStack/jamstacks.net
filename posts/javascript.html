@@ -4,9 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://servicestack.net/feed.xml" />
     <title>Simple, Modern JavaScript</title>
     <base href="/" />
     <script>
+    if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
+    if (location.search === "?light") localStorage.removeItem('color-scheme') 
     const cls = document.querySelector('html').classList
     if (localStorage.getItem('color-scheme') === 'dark')
         cls.add('dark')
@@ -26,6 +29,16 @@
     }
 }
 </script>
+    
+    <meta name="twitter:site" content="@ServiceStack" />
+    <meta name="twitter:creator" content="@demisbellot" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:description" content="Learn about JS Modules, Vue 3 and available rich UI Components" />
+    <meta property="og:url" content="https://servicestack.net/posts/javascript" />
+    <meta property="og:title" content="Simple, Modern JavaScript" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" />
+
+
 </head>
 <body class="bg-white dark:bg-black dark:text-white">
 <header class="border-b border-gray-200 dark:border-gray-600 pr-3">
@@ -73,7 +86,9 @@ mountAll()
         
 
 
+
 <link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/lite-yt-embed.css">
 
 <div class="container px-5 mb-32 mx-auto">
         <article class="mt-20">
@@ -88,14 +103,21 @@ mountAll()
                             <ul role="list" class="flex">
                                     <li>
                                         <a title="Follow on Twitter" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://twitter.com/demisbellot">
-                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-indigo-500">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500">
                                                 <path d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"></path>
                                             </svg>
                                         </a>
                                     </li>
                                     <li>
+                                        <a title="Follow on threads.net" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://threads.net/@demisbellot">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500" width="24" height="24" viewBox="0 0 24 24">
+                                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7.5c-1.333-3-3.667-4.5-7-4.5c-5 0-8 2.5-8 9s3.5 9 8 9s7-3 7-5s-1-5-7-5c-2.5 0-3 1.25-3 2.5C9 15 10 16 11.5 16c2.5 0 3.5-1.5 3.5-5s-2-4-3-4s-1.833.333-2.5 1"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a title="Follow on GitHub" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://github.com/mythz">
-                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-indigo-500">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.475 2 2 6.588 2 12.253c0 4.537 2.862 8.369 6.838 9.727.5.09.687-.218.687-.487 0-.243-.013-1.05-.013-1.91C7 20.059 6.35 18.957 6.15 18.38c-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.538 1.051.9 1.551 2.338 1.116 2.912.846.088-.666.35-1.115.638-1.371-2.225-.256-4.55-1.14-4.55-5.062 0-1.115.387-2.038 1.025-2.756-.1-.256-.45-1.307.1-2.717 0 0 .837-.269 2.75 1.051.8-.23 1.65-.346 2.5-.346.85 0 1.7.115 2.5.346 1.912-1.333 2.75-1.05 2.75-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.562 5.062.362.32.675.936.675 1.897 0 1.371-.013 2.473-.013 2.82 0 .268.188.589.688.486a10.039 10.039 0 0 0 4.932-3.74A10.447 10.447 0 0 0 22 12.253C22 6.588 17.525 2 12 2Z"></path>
                                             </svg>
                                         </a>
@@ -122,7 +144,7 @@ mountAll()
                     </div>
                 </div>
             <div class="max-w-3xl mx-auto">
-                <div class="prose lg:prose-xl max-w-none mb-32">
+                <div id="post" class="prose lg:prose-xl max-w-none mb-32">
                     <svg class="sm:float-left mr-8 w-24 h-24" style="margin-top:0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
 <rect width="630" height="630" fill="#f7df1e"/>
 <path d="m423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z"/>
@@ -138,7 +160,7 @@ development can be considered optional as we can now utilize modern browser feat
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">import maps</a>
 and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">modern language features</a> for a
 sophisticated development workflow without the need for any npm build tools.</p>
-<h3 id="bringing-simplicity-back">Bringing Simplicity Back</h3>
+<h3 id="bringing-simplicity-back">Bringing Simplicity Back<a class="header-anchor" href="javascript:;" onclick="location.hash='#bringing-simplicity-back'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>The <a href="https://github.com/NetCoreTemplates/vue-mjs">vue-mjs</a> template focuses on simplicity and eschews many aspects that has
 complicated modern JavaScript development,
 specifically:</p>
@@ -149,25 +171,25 @@ specifically:</p>
 </ul>
 <p>Effectively abandoning the traditional SPA approach in lieu of a simpler <a href="https://docs.astro.build/en/concepts/mpa-vs-spa/">MPA</a>
 development model using Razor Pages for Server Rendered content with any interactive UIs progressively enhanced with JavaScript.</p>
-<h4 id="freedom-to-use-any-js-library">Freedom to use any JS library</h4>
+<h4 id="freedom-to-use-any-js-library">Freedom to use any JS library<a class="header-anchor" href="javascript:;" onclick="location.hash='#freedom-to-use-any-js-library'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Avoiding the SPA route ends up affording more flexibility on which JS libraries each page can use as without heavy bundled JS
 blobs of all JS used in the entire App, it's free to only load the required JS each page needs to best implement its
 required functionality, which can be any JS library, preferably utilizing ESM builds that can be referenced from a
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">JavaScript Module</a>, taking advantage of the module system
 native to modern browsers able to efficiently download the declarative matrix of dependencies each script needs.</p>
-<h3 id="best-libraries-for-progressive-multi-page-apps">Best libraries for progressive Multi Page Apps</h3>
+<h3 id="best-libraries-for-progressive-multi-page-apps">Best libraries for progressive Multi Page Apps<a class="header-anchor" href="javascript:;" onclick="location.hash='#best-libraries-for-progressive-multi-page-apps'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>It includes a collection of libraries we believe offers the best modern development experience in Progressive
 MPA Web Apps, specifically:</p>
-<h4 id="tailwind-cli"><a href="https://tailwindcss.com/docs/installation">Tailwind CLI</a></h4>
+<h4 id="tailwind-cli"><a href="https://tailwindcss.com/docs/installation">Tailwind CLI</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#tailwind-cli'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Tailwind enables a responsive, utility-first CSS framework for creating maintainable CSS at scale without the need for any CSS
 preprocessors like Sass, which is configured to run from an npx script to avoid needing any node_module dependencies.</p>
-<h4 id="vue-3"><a href="https://vuejs.org/guide/introduction.html">Vue 3</a></h4>
+<h4 id="vue-3"><a href="https://vuejs.org/guide/introduction.html">Vue 3</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#vue-3'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Vue is a popular Progressive JavaScript Framework that makes it easy to create interactive Reactive Components whose
 <a href="https://vuejs.org/api/composition-api-setup.html">Composition API</a> offers a nice development model without requiring any
 pre-processors like JSX.</p>
 <p>Where creating a component is as simple as:</p>
 <pre><code class="language-js">const Hello = {
-    template: `&lt;b&gt;Hello, {{name}}!&lt;/b&gt;`,
+    template: `&lt;b&gt;Hello, {‎{name}‎}!&lt;/b&gt;`,
     props: { name:String }
 }
 </code></pre>
@@ -176,7 +198,7 @@ pre-processors like JSX.</p>
 <pre><code class="language-js">import { ref } from &quot;vue&quot;
 
 const Counter = {
-    template: `&lt;b @click=&quot;count++&quot;&gt;Counter {{count}}&lt;/b&gt;`,
+    template: `&lt;b @click=&quot;count++&quot;&gt;Counter {‎{count}‎}&lt;/b&gt;`,
     setup() {
         let count = ref(1)
         return { count }
@@ -211,12 +233,12 @@ and <a href="https://docs.servicestack.net/vue/gallery/modals">ModalDialog</a>:<
 }
 </code></pre>
 <div class="text-center"><div data-component="Plugin" id="plugin" class="text-2xl py-4"></div></div>
-<h3 id="servicestackvue">@servicestack/vue</h3>
+<h3 id="servicestackvue">@servicestack/vue<a class="header-anchor" href="javascript:;" onclick="location.hash='#servicestackvue'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p><a href="https://github.com/ServiceStack/servicestack-vue">@servicestack/vue</a> is our growing Vue 3 Tailwind component library with a number of rich Tailwind components useful
 in .NET Web Apps, including Input Components with auto form validation binding which is used by all HTML forms in
 the <a href="https://github.com/NetCoreTemplates/vue-mjs">vue-mjs</a> template.</p>
 <div data-component="VueComponentGallery"></div>
-<h3 id="servicestackclient">@servicestack/client</h3>
+<h3 id="servicestackclient">@servicestack/client<a class="header-anchor" href="javascript:;" onclick="location.hash='#servicestackclient'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p><a href="https://docs.servicestack.net/javascript-client">@servicestack/client</a> is our generic JS/TypeScript client library
 which enables a terse, typed API for using your App's typed DTOs from the built-in
 <a href="https://docs.servicestack.net/javascript-add-servicestack-reference">JavaScript ES6 Classes</a> support to enable an effortless
@@ -254,7 +276,7 @@ import { Hello } from &quot;../dtos.mjs&quot;
 export default {
     template:/*html*/`&lt;div class=&quot;flex flex-wrap justify-center&quot;&gt;
         &lt;TextInput v-model=&quot;name&quot; @keyup=&quot;update&quot; /&gt;
-        &lt;div class=&quot;ml-3 mt-2 text-lg&quot;&gt;{{ result }}&lt;/div&gt;
+        &lt;div class=&quot;ml-3 mt-2 text-lg&quot;&gt;{‎{ result }‎}&lt;/div&gt;
     &lt;/div&gt;`,
     props:['value'],
     setup(props) {
@@ -277,11 +299,11 @@ export default {
 <p>Which we can also mount below:</p>
 <div data-component="HelloApi" data-props="{ value: 'Vue 3' }" class="w-full font-semibold"></div>
 <p>We'll also go through and explain other features used in this component:</p>
-<h4 id="html"><code>/*html*/</code></h4>
+<h4 id="html"><code>/*html*/</code><a class="header-anchor" href="javascript:;" onclick="location.hash='#html'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Although not needed in <a href="rider">Rider</a> (which can automatically infer HTML in strings), the <code>/*html*/</code> type hint can be used
 to instruct tooling like the <a href="https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html">es6-string-html</a>
 VS Code extension to provide syntax highlighting and an enhanced authoring experience for HTML content in string literals.</p>
-<h3 id="useclient">useClient</h3>
+<h3 id="useclient">useClient<a class="header-anchor" href="javascript:;" onclick="location.hash='#useclient'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p><a href="https://docs.servicestack.net/vue/use-client">useClient()</a> provides managed APIs around the <code>JsonServiceClient</code>
 instance registered in Vue App's with:</p>
 <pre><code class="language-js">let client = JsonApiClient.create()
@@ -300,16 +322,16 @@ enable its auto validation binding. Other functionality in this provider include
 <pre><code class="language-js">let client = JsonApiClient.create()
 let api = await client.api(new Hello({ name:name.value }))
 </code></pre>
-<h4 id="useclient-api">useClient - api</h4>
+<h4 id="useclient-api">useClient - api<a class="header-anchor" href="javascript:;" onclick="location.hash='#useclient-api'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>This is unnecessary in useClient <code>api*</code> methods which automatically unwraps ref values, allowing for the more pleasant API call:</p>
 <pre><code class="language-js">let api = await client.api(new Hello({ name }))
 </code></pre>
-<h4 id="useclient-unrefs">useClient - unRefs</h4>
+<h4 id="useclient-unrefs">useClient - unRefs<a class="header-anchor" href="javascript:;" onclick="location.hash='#useclient-unrefs'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>But as DTOs are typed, passing reference values will report a type annotation warning in IDEs with type-checking enabled,
 which can be resolved by explicitly unwrapping DTO ref values with <code>unRefs</code>:</p>
 <pre><code class="language-js">let api = await client.api(new Hello(unRefs({ name })))
 </code></pre>
-<h4 id="useclient-seterror">useClient - setError</h4>
+<h4 id="useclient-seterror">useClient - setError<a class="header-anchor" href="javascript:;" onclick="location.hash='#useclient-seterror'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p><code>setError</code> can be used to populate client-side validation errors which the
 <a href="https://github.com/NetCoreTemplates/vue-mjs/blob/main/MyApp/wwwroot/Pages/SignUp.mjs">SignUp.mjs</a>
 component uses to report an invalid submissions when passwords don't match:</p>
@@ -322,11 +344,11 @@ async function onSubmit() {
     //...
 }
 </code></pre>
-<h3 id="form-validation">Form Validation</h3>
+<h3 id="form-validation">Form Validation<a class="header-anchor" href="javascript:;" onclick="location.hash='#form-validation'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>All <code>@servicestack/vue</code> Input Components support contextual validation binding that's typically populated from API
 <a href="https://docs.servicestack.net/error-handling">Error Response DTOs</a> but can also be populated from client-side validation
 as done above.</p>
-<h4 id="explicit-error-handling">Explicit Error Handling</h4>
+<h4 id="explicit-error-handling">Explicit Error Handling<a class="header-anchor" href="javascript:;" onclick="location.hash='#explicit-error-handling'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>This populated <code>ResponseStatus</code> DTO can either be manually passed into each component's <strong>status</strong> property as done in <a href="https://vue-mjs.web-templates.io/TodoMvc">/TodoMvc</a>:</p>
 <pre><code class="language-html">&lt;template id=&quot;TodoMvc-template&quot;&gt;
     &lt;div class=&quot;mb-3&quot;&gt;
@@ -355,7 +377,7 @@ with matching <code>id</code> fields:</p>
     //...
 }
 </code></pre>
-<h4 id="implicit-error-handling">Implicit Error Handling</h4>
+<h4 id="implicit-error-handling">Implicit Error Handling<a class="header-anchor" href="javascript:;" onclick="location.hash='#implicit-error-handling'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>More often you'll want to take advantage of the implicit validation support in <code>useClient()</code> which makes its state available to child
 components, alleviating the need to explicitly pass it in each component as seen in razor-tailwind's
 <a href="https://github.com/NetCoreTemplates/razor-tailwind/blob/main/MyApp/wwwroot/Pages/Contacts.mjs">Contacts.mjs</a> <code>Edit</code> component for its
@@ -418,7 +440,7 @@ components, alleviating the need to explicitly pass it in each component as seen
 <p>Effectively making form validation binding a transparent detail where all <code>@servicestack/vue</code>
 Input Components are able to automatically apply contextual validation errors next to the fields they apply to:</p>
 <p><img src="https://raw.githubusercontent.com/ServiceStack/docs/master/docs/images/scripts/edit-contact-validation.png" alt="" /></p>
-<h3 id="autoform-components">AutoForm Components</h3>
+<h3 id="autoform-components">AutoForm Components<a class="header-anchor" href="javascript:;" onclick="location.hash='#autoform-components'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>We can elevate our productivity even further with
 <a href="https://docs.servicestack.net/vue/gallery/autoform">Auto Form Components</a> that can automatically generate an
 instant API-enabled form with validation binding by just specifying the Request DTO you want to create the form of, e.g:</p>
@@ -433,7 +455,7 @@ reused across all ServiceStack Auto UIs, including:</p>
 <li><a href="https://docs.servicestack.net/locode/">Locode</a></li>
 <li><a href="https://docs.servicestack.net/templates-blazor-components">Blazor Tailwind Components</a></li>
 </ul>
-<h3 id="form-input-components">Form Input Components</h3>
+<h3 id="form-input-components">Form Input Components<a class="header-anchor" href="javascript:;" onclick="location.hash='#form-input-components'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>In addition to including Tailwind versions of the standard <a href="https://docs.servicestack.net/vue/gallery/form-inputs">HTML Form Inputs</a> controls to create beautiful Tailwind Forms,
 it also contains a variety of integrated high-level components:</p>
 <ul>
@@ -441,7 +463,7 @@ it also contains a variety of integrated high-level components:</p>
 <li><a href="https://docs.servicestack.net/vue/gallery/taginput">TagInput</a></li>
 <li><a href="https://docs.servicestack.net/vue/gallery/autocomplete">Autocomplete</a></li>
 </ul>
-<h3 id="useauth">useAuth</h3>
+<h3 id="useauth">useAuth<a class="header-anchor" href="javascript:;" onclick="location.hash='#useauth'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>Your Vue.js code can access Authenticated Users using <a href="https://docs.servicestack.net/vue/use-auth">useAuth()</a>
 which can also be populated without the overhead of an Ajax request by embedding the response of the built-in
 <a href="https://vue-mjs.web-templates.io/ui/Authenticate?tab=details">Authenticate API</a> inside <code>_Layout.cshtml</code> with:</p>
@@ -476,7 +498,7 @@ to control whether the <code>&lt;AutoEditForm&gt;</code> component should enable
     }
 }
 </code></pre>
-<h4 id="jsdoc"><a href="https://jsdoc.app">JSDoc</a></h4>
+<h4 id="jsdoc"><a href="https://jsdoc.app">JSDoc</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#jsdoc'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>We get great value from using <a href="https://www.typescriptlang.org">TypeScript</a> to maintain our libraries typed code bases, however it
 does mandate using an external tool to convert it to valid JS before it can be run, something the new Razor Vue.js templates expressly avoids.</p>
 <p>Instead it adds JSDoc type annotations to code where it adds value, which at the cost of slightly more verbose syntax enables much of the
@@ -489,11 +511,11 @@ function validateSafeName(e) {
     }
 }
 </code></pre>
-<h4 id="typescript-language-service">TypeScript Language Service</h4>
+<h4 id="typescript-language-service">TypeScript Language Service<a class="header-anchor" href="javascript:;" onclick="location.hash='#typescript-language-service'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Whilst the code-base doesn't use TypeScript syntax in its code base directly, it still benefits from TypeScript's language services
 in IDEs for the included libraries from the TypeScript definitions included in <code>/lib/typings</code>, downloaded in
 <a href="https://github.com/NetCoreTemplates/vue-mjs/blob/main/MyApp/postinstall.js">postinstall.js</a> after <strong>npm install</strong>.</p>
-<h3 id="import-maps">Import Maps</h3>
+<h3 id="import-maps">Import Maps<a class="header-anchor" href="javascript:;" onclick="location.hash='#import-maps'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">Import Maps</a> is a useful browser feature that allows
 specifying optimal names for modules, that can be used to map package names to the implementation it should use, e.g:</p>
 <pre><code class="language-csharp">@Html.StaticImportMap(new() {
@@ -526,7 +548,7 @@ production builds when running in <strong>Production</strong>, alleviating the n
     [&quot;@servicestack/vue&quot;]    = (&quot;/lib/mjs/servicestack-vue.mjs&quot;,    &quot;/lib/mjs/servicestack-vue.min.mjs&quot;)
 })
 </code></pre>
-<h4 id="polyfill-for-safari">Polyfill for Safari</h4>
+<h4 id="polyfill-for-safari">Polyfill for Safari<a class="header-anchor" href="javascript:;" onclick="location.hash='#polyfill-for-safari'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
 <p>Unfortunately Safari is the last modern browser to <a href="https://caniuse.com/import-maps">support import maps</a> which is only now in
 Technical Preview. Luckily this feature can be polyfilled with the <a href="https://github.com/guybedford/es-module-shims">ES Module Shims</a>:</p>
 <pre><code class="language-html">@if (Context.Request.Headers.UserAgent.Any(x =&gt; x.Contains(&quot;Safari&quot;) &amp;&amp; !x.Contains(&quot;Chrome&quot;)))
@@ -534,7 +556,7 @@ Technical Preview. Luckily this feature can be polyfilled with the <a href="http
     &lt;script async src=&quot;https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js&quot;&gt;&lt;/script&gt;
 }
 </code></pre>
-<h3 id="fast-component-loading">Fast Component Loading</h3>
+<h3 id="fast-component-loading">Fast Component Loading<a class="header-anchor" href="javascript:;" onclick="location.hash='#fast-component-loading'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>SPAs are notorious for being slow to load due to needing to download large blobs of JavaScript bundles that it needs to initialize
 with their JS framework to mount their App component before it starts fetching the data from the server it needs to render its components.</p>
 <p>A complex solution to this problem is to server render the initial HTML content then re-render it again on the client after the page loads.
@@ -553,7 +575,7 @@ mount('#todomvc', TodoMvc, { todos })
 </code></pre>
 <p>The result of which should render the List of Todos instantly when the page loads since it doesn't need to perform any additional Ajax requests
 after the component is loaded.</p>
-<h3 id="fast-page-loading">Fast Page Loading</h3>
+<h3 id="fast-page-loading">Fast Page Loading<a class="header-anchor" href="javascript:;" onclick="location.hash='#fast-page-loading'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p>We can get SPA-like page loading performance using htmx's <a href="https://htmx.org/docs/#boosting">Boosting</a> feature which avoids full page reloads
 by converting all anchor tags to use Ajax to load page content into the page body, improving perceived performance from needing to reload
 scripts and CSS in <code>&lt;head&gt;</code>.</p>
@@ -574,7 +596,7 @@ appearing until after the page is loaded:</p>
 &lt;/div&gt;
 </code></pre>
 <p>Which is used to reduce UI yankiness from showing server rendered content before JS components have loaded.</p>
-<h3 id="servicestackvue-library">@servicestack/vue Library</h3>
+<h3 id="servicestackvue-library">@servicestack/vue Library<a class="header-anchor" href="javascript:;" onclick="location.hash='#servicestackvue-library'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <p><a href="https://docs.servicestack.net/vue/">@servicestack/vue</a> is our cornerstone library for enabling a highly productive
 Vue.js development model across our <a href="https://docs.servicestack.net/templates-vue">Vue Tailwind Project templates</a> which
 we'll continue to significantly invest in to unlock even greater productivity benefits in all Vue Tailwind Apps.</p>
@@ -597,6 +619,22 @@ init()
 <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets/styles/atom-one-dark.min.css">
 <script src="//unpkg.com/@highlightjs/cdn-assets/highlight.min.js"></script>
 <script>hljs.highlightAll()</script>
+<script src="js/lite-yt-embed.js"></script>
+<script src="mjs/docs.mjs" type="module"></script>
+
+<script type="module">
+import { mount } from "app.mjs"
+
+    const App = {
+        setup() {
+            function nav(url) {
+                window.open(url)
+            }
+            return { nav }
+        }
+    }
+    mount('#post', App)
+</script>
 
     </main>
 </div>
