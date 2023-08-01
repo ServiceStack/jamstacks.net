@@ -7,8 +7,10 @@ namespace MyApp;
 public class ConfigureSsg : IHostingStartup
 {
     public void Configure(IWebHostBuilder builder) => builder
-        .ConfigureServices(services =>
+        .ConfigureServices((context, services) =>
         {
+            context.Configuration.GetSection(nameof(AppConfig)).Bind(AppConfig.Instance);
+            services.AddSingleton(AppConfig.Instance);
             services.AddSingleton<RazorPagesEngine>();
             services.AddSingleton<MarkdownPages>();
             services.AddSingleton<MarkdownVideos>();
@@ -27,7 +29,7 @@ public class ConfigureSsg : IHostingStartup
                 meta.Features = new() { pages, videos, blogPosts };
                 meta.Features.ForEach(x => x.VirtualFiles = appHost.VirtualFiles);
 
-                blogPosts.Authors = Authors;
+                blogPosts.Authors = AppConfig.Instance.Authors;
 
                 pages.LoadFrom("_pages");
                 videos.LoadFrom("_videos");
@@ -53,21 +55,23 @@ public class ConfigureSsg : IHostingStartup
                     RazorSsg.PrerenderAsync(appHost, razorFiles, distDir).GetAwaiter().GetResult();
                 });
             });
-
-    public List<AuthorInfo> Authors { get; } = new() {
-        new("Demis Bellot", "/img/authors/demis.jpg")
-        {
-            GitHubUrl = "https://github.com/mythz",
-            TwitterUrl = "https://twitter.com/demisbellot",
-        },
-        new("Darren Reid", "/img/authors/darren.jpg")
-        {
-            GitHubUrl = "https://github.com/layoric",
-            TwitterUrl = "https://twitter.com/layoric",
-        },
-        new AuthorInfo("Lucy Bates", "/img/authors/author1.svg"),
-    };
 }
+
+public class AppConfig
+{
+    public static AppConfig Instance { get; } = new();
+    public string LocalBaseUrl { get; set; }
+    public string PublicBaseUrl { get; set; }
+    public string? GitPagesBaseUrl { get; set; }
+    public string? SiteTwitter { get; set; }
+    public List<AuthorInfo> Authors { get; set; } = new();
+    public string? BlogTitle { get; set; }
+    public string? BlogDescription { get; set; }
+    public string? BlogEmail { get; set; }
+    public string? CopyrightOwner { get; set; }
+    public string? BlogImageUrl { get; set; }
+}
+
 
 // Add additional frontmatter info to include
 public class MarkdownFileInfo : MarkdownFileBase
