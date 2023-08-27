@@ -10,10 +10,23 @@
     </image>
     <generator>razor-ssg</generator>
     <copyright></copyright>
-    <lastBuildDate>Wed, 02 Aug 2023 06:15:39 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Aug 2023 09:48:03 GMT</lastBuildDate>
     <managingEditor>team@servicestack.net (Team ServiceStack)</managingEditor>
     <webMaster>team@servicestack.net (Team ServiceStack)</webMaster>
     <atom:link href="https://jamstacks.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+        <title>New Blogging Features in Razor SSG</title>
+        <link>https://jamstacks.net/posts/new-blog-features</link>
+        <author>demis@servicestack.com (Demis Bellot)</author>
+        <guid isPermaLink="false">https://jamstacks.net/posts/new-blog-features</guid>
+        <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-08-01T00:00:00Z</atom:updated>
+        <category>razor</category>
+        <category>markdown</category>
+        <category>blog</category>
+        <category>dev</category>
+        <description>Look at the new Blogging features in the latest version of Razor SSG</description>
+    </item>
     <item>
         <title>Introducing Razor Press</title>
         <link>https://jamstacks.net/posts/razor-press</link>
@@ -115,18 +128,6 @@
         <category>github-actions</category>
         <category>devops</category>
         <description>Configuring your GitHub repo for SSH and CDN deployments</description>
-    </item>
-    <item>
-        <title>In pursuit of the best value US cloud provider</title>
-        <link>https://jamstacks.net/posts/hetzner-cloud</link>
-        <author>darren@servicestack.com (Darren Reid)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/hetzner-cloud</guid>
-        <pubDate>Tue, 06 Sep 2022 00:00:00 GMT</pubDate>
-        <atom:updated>2022-09-06T00:00:00Z</atom:updated>
-        <category>dev</category>
-        <category>hosting</category>
-        <category>devops</category>
-        <description>We&#x27;ve been using AWS at ServiceStack for 10&#x2B; years, it&#x27;s served us well but suffers from complex &amp; expensive pricing</description>
     </item>
 </channel>
 </rss>

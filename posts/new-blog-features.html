@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg" href="img/logo.svg">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://jamstacks.net/feed.xml" />
+    <title>New Blogging Features in Razor SSG</title>
+    <base href="/" />
+    <script>
+    if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
+    if (location.search === "?light") localStorage.removeItem('color-scheme') 
+    const cls = document.querySelector('html').classList
+    if (localStorage.getItem('color-scheme') === 'dark')
+        cls.add('dark')
+    else
+        cls.remove('dark')
+    </script>
+    <link rel="stylesheet" href="css/app.css">
+    
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+{
+    "imports": {
+        "app.mjs": "./mjs/app.mjs",
+        "vue": "./lib/mjs/vue.min.mjs",
+        "@servicestack/client": "./lib/mjs/servicestack-client.min.mjs",
+        "@servicestack/vue": "./lib/mjs/servicestack-vue.min.mjs"
+    }
+}
+</script>
+    
+    <meta name="twitter:site" content="@ServiceStack" />
+    <meta name="twitter:creator" content="@demisbellot" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:description" content="Look at the new Blogging features in the latest version of Razor SSG" />
+    <meta property="og:url" content="https://jamstacks.net/posts/new-blog-features" />
+    <meta property="og:title" content="New Blogging Features in Razor SSG" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" />
+
+
+</head>
+<body class="bg-white dark:bg-black dark:text-white">
+
+<!-- Background backdrop, visually different from main _Layout -->
+<svg class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]" aria-hidden="true">
+  <defs>
+    <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+      <path d="M.5 200V.5H200" fill="none"/>
+    </pattern>
+  </defs>
+  <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
+    <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0"/>
+  </svg>
+  <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"/>
+</svg>
+<div class="absolute top-0 left-1/2 right-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48">
+  <svg viewBox="0 0 801 1036" aria-hidden="true" class="w-[50.0625rem]">
+    <path fill="url(#70656b7e-db44-4b9b-b7d2-1f06791bed52)" fill-opacity=".3" d="m282.279 843.371 32.285 192.609-313.61-25.32 281.325-167.289-58.145-346.888c94.5 92.652 277.002 213.246 251.009-45.597C442.651 127.331 248.072 10.369 449.268.891c160.956-7.583 301.235 116.434 351.256 179.39L507.001 307.557l270.983 241.04-495.705 294.774Z"/>
+    <defs>
+      <linearGradient id="70656b7e-db44-4b9b-b7d2-1f06791bed52" x1="508.179" x2="-28.677" y1="-116.221" y2="1091.63" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#9089FC"/>
+        <stop offset="1" stop-color="#FF80B5"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
+
+<header class="border-b border-gray-200 dark:border-gray-600 pr-3">
+    <div class="flex flex-wrap items-center">
+        <div class="absolute z-10 top-2 left-2 sm:static flex-shrink flex-grow-0">
+            <div class="cursor-pointer">
+                <a aria-current="page" href="/" class="router-link-active router-link-exact-active"><div class="p-4 cursor-pointer flex"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" class="w-8 h-8 mr-2 mt-0.5" alt="Jamstacks logo"><path d="M128 0C57.221 0 0 57.221 0 128c0 70.778 57.221 128 128 128c70.778 0 128-57.222 128-128V0H128z" fill="#F0047F"></path><path d="M121.04 134.96v93.312c-49.663-2.837-89.64-42.345-93.215-91.81l-.097-1.502h93.312zm90.962 0c-2.6 49.664-38.816 89.64-84.159 93.215l-1.377.097V134.96h85.536zm.112-91.074v85.648h-85.648V43.886h85.648z" fill="#FFF"></path></svg><span class="text-3xl font-bold">Jamstacks</span><div><div class="ml-2 text-xl bg-purple-600 text-white py-0.5 px-1.5 rounded">.NET</div></div></div></a>
+            </div>
+        </div>
+        <div class="flex flex-grow flex-shrink flex-nowrap justify-end items-center">
+            <nav class="relative flex flex-grow leading-6 font-semibold text-slate-700 dark:text-slate-200">
+                <ul class="flex flex-wrap items-center justify-end w-full m-0 pb-2 sm:pb-0">
+                            <li class="relative flex flex-wrap just-fu-start m-0">
+                                <a href="videos" class="p-4 flex items-center justify-start mw-full hover:text-sky-500 dark:hover:text-sky-400">
+                                    Videos
+                                </a>
+                            </li>
+                            <li class="relative flex flex-wrap just-fu-start m-0">
+                                <a href="blog" class="p-4 flex items-center justify-start mw-full hover:text-sky-500 dark:hover:text-sky-400">
+                                    Blog
+                                </a>
+                            </li>
+                            <li class="relative flex flex-wrap just-fu-start m-0">
+                                <a href="posts/" class="p-4 flex items-center justify-start mw-full hover:text-sky-500 dark:hover:text-sky-400">
+                                    Archive
+                                </a>
+                            </li>
+                    <li class="relative flex flex-wrap just-fu-start m-0">
+                        <div data-component="DarkModeToggle" class="ml-2 w-10"></div>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</header>
+<script type="module">
+import { mountAll } from "app.mjs"
+mountAll()
+</script>
+
+
+<div class="min-h-screen">
+  <main role="main" class="pt-14 pb-3">
+    
+
+
+
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/lite-yt-embed.css">
+
+<div class="container px-5 mb-32 mx-auto">
+        <article class="mt-20">
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+                New Blogging Features in Razor SSG
+            </h1>
+            <div class="flex justify-between">
+                <div class="md:mb-12 flex items-center">
+                        <a href="posts/author/demis-bellot"><img class="w-12 h-12 rounded-full mr-4 text-cyan-600" src="/img/authors/demis.jpg"></a>
+                    <div class="flex flex-col">
+                            <a class="text-xl font-semibold hover:underline" href="posts/author/demis-bellot">Demis Bellot</a>
+                            <ul role="list" class="flex">
+                                    <li>
+                                        <a title="Follow on Twitter" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://twitter.com/demisbellot">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500">
+                                                <path d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="Follow on threads.net" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://threads.net/@demisbellot">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500" width="24" height="24" viewBox="0 0 24 24">
+                                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7.5c-1.333-3-3.667-4.5-7-4.5c-5 0-8 2.5-8 9s3.5 9 8 9s7-3 7-5s-1-5-7-5c-2.5 0-3 1.25-3 2.5C9 15 10 16 11.5 16c2.5 0 3.5-1.5 3.5-5s-2-4-3-4s-1.833.333-2.5 1"/>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="Follow on GitHub" class="mr-1 group flex text-sm font-medium text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500" href="https://github.com/mythz">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none text-zinc-500 fill-zinc-500 transition group-hover:fill-indigo-500">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.475 2 2 6.588 2 12.253c0 4.537 2.862 8.369 6.838 9.727.5.09.687-.218.687-.487 0-.243-.013-1.05-.013-1.91C7 20.059 6.35 18.957 6.15 18.38c-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.538 1.051.9 1.551 2.338 1.116 2.912.846.088-.666.35-1.115.638-1.371-2.225-.256-4.55-1.14-4.55-5.062 0-1.115.387-2.038 1.025-2.756-.1-.256-.45-1.307.1-2.717 0 0 .837-.269 2.75 1.051.8-.23 1.65-.346 2.5-.346.85 0 1.7.115 2.5.346 1.912-1.333 2.75-1.05 2.75-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.562 5.062.362.32.675.936.675 1.897 0 1.371-.013 2.473-.013 2.82 0 .268.188.589.688.486a10.039 10.039 0 0 0 4.932-3.74A10.447 10.447 0 0 0 22 12.253C22 6.588 17.525 2 12 2Z"></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="mb-4 max-w-sm" data-mail="JoinMailingList" data-props="{ submitLabel:'Join our newsletter' }"></div>
+            </div>
+            <div class="mb-8 md:mb-16 sm:mx-0">
+                <div class="sm:mx-0">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" alt="New Blogging Features in Razor SSG Background" class="shadow-small">
+                </div>
+            </div>
+            <div class="mb-4 max-w-3xl mx-auto flex flex-wrap">
+                    <a href="posts/tagged/razor" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">razor</a>
+                    <a href="posts/tagged/markdown" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">markdown</a>
+                    <a href="posts/tagged/blog" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">blog</a>
+                    <a href="posts/tagged/dev" class="mr-2 text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">dev</a>
+            </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-6 text-lg text-gray-500">
+                        <time datetime="2023-08-01T00:00:00.0000000">August 1, 2023</time>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            <div class="max-w-3xl mx-auto">
+                <div id="post" class="prose lg:prose-xl max-w-none mb-32">
+                    <p>The Razor SSG template continues to improve support for static generated websites and Blogs with new features for
+creating richer and more discoverable blogs:</p>
+<h3 id="rss-feed">RSS Feed<a class="header-anchor" href="javascript:;" onclick="location.hash='#rss-feed'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Razor SSG websites now generates a valid RSS Feed for its blog to support their readers who'd prefer to read blog posts
+with their favorite RSS reader:</p>
+<div class="not-prose my-8">
+   <a href="https://razor-ssg.web-templates.io/feed.xml">
+      <div class="block flex justify-center shadow hover:shadow-lg rounded overflow-hidden">
+         <img class="max-w-3xl py-8" src="https://docs.servicestack.net/img/pages/release-notes/v6.10/valid-rss.png">
+      </div>
+   </a>
+   <div class="mt-4 flex justify-center">
+      <a class="text-indigo-600 hover:text-indigo-800" href="https://razor-ssg.web-templates.io/feed.xml">https://razor-ssg.web-templates.io/feed.xml</a>
+   </div>
+</div>
+<h3 id="new-markdown-containers">New Markdown Containers<a class="header-anchor" href="javascript:;" onclick="location.hash='#new-markdown-containers'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>All Razor Press's <a href="https://razor-press.web-templates.io/containers">Markdown Containers</a> are also available in Razor SSG
+websites for enabling rich, wrist-friendly consistent markup in your Markdown pages, e.g:</p>
+<pre><code class="language-md">::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+:::copy
+Copy Me!
+:::
+</code></pre>
+<div class="info custom-block">
+                <p class="custom-block-title">INFO</p><p>This is an info box.</p>
+</div>
+<div class="tip custom-block">
+                <p class="custom-block-title">TIP</p><p>This is a tip.</p>
+</div>
+<div class="warning custom-block">
+                <p class="custom-block-title">WARNING</p><p>This is a warning.</p>
+</div>
+<div class="danger custom-block">
+                <p class="custom-block-title">DANGER</p><p>This is a dangerous warning.</p>
+</div>
+<div class="not-prose copy cp flex cursor-pointer mb-3" onclick="copy(this)">
+                <div class="flex-grow bg-gray-700">
+                    <div class="pl-4 py-1 pb-1.5 align-middle text-lg text-white"><p>Copy Me!</p>
+</div>
+                    </div>
+                <div class="flex">
+                    <div class="bg-sky-500 text-white p-1.5 pb-0">
+                        <svg class="copied w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="nocopy w-6 h-6" title="copy" fill='none' stroke='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2'></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+<p>See <a href="https://razor-press.web-templates.io/containers">Markdown Containers docs</a> for more examples and how to
+implement your own <a href="https://razor-press.web-templates.io/containers#implementing-block-containers">Custom Markdown containers</a>.</p>
+<h3 id="support-for-includes">Support for Includes<a class="header-anchor" href="javascript:;" onclick="location.hash='#support-for-includes'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Markdown fragments can be added to <code>_pages/_include</code> - a special folder rendered with
+<a href="https://github.com/NetCoreTemplates/razor-ssg/blob/main/MyApp/Pages/Includes.cshtml">Pages/Includes.cshtml</a> using
+an <a href="https://github.com/NetCoreTemplates/razor-ssg/blob/main/MyApp/Pages/Shared/_LayoutEmpty.cshtml">Empty Layout</a>
+which can be included in other Markdown and Razor Pages or fetched on demand with Ajax.</p>
+<p>Markdown Fragments can be then included inside other markdown documents with the <code>::include</code> inline container, e.g:</p>
+<pre class="pre">
+::include vue/formatters.md::</pre>
+<p>Where it will be replaced with the HTML rendered markdown contents of fragments maintained in <code>_pages/_include</code>.</p>
+<h3 id="include-markdown-in-razor-pages">Include Markdown in Razor Pages<a class="header-anchor" href="javascript:;" onclick="location.hash='#include-markdown-in-razor-pages'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Markdown Fragments can also be included in Razor Pages using the custom <code>MarkdownTagHelper.cs</code> <code>&lt;markdown/&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;markdown include=&quot;vue/formatters.md&quot;&gt;&lt;/markdown&gt;
+</code></pre>
+<h3 id="inline-markdown-in-razor-pages">Inline Markdown in Razor Pages<a class="header-anchor" href="javascript:;" onclick="location.hash='#inline-markdown-in-razor-pages'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Alternatively markdown can be rendered inline with:</p>
+<pre><code class="language-html">&lt;markdown&gt;
+## Using Formatters
+
+Your App and custom templates can also utilize @servicestack/vue's
+[built-in formatting functions](href=&quot;/vue/use-formatters).
+&lt;/markdown&gt;
+</code></pre>
+<h3 id="meta-headers-support-for-twitter-cards-and-improved-seo">Meta Headers support for Twitter cards and Improved SEO<a class="header-anchor" href="javascript:;" onclick="location.hash='#meta-headers-support-for-twitter-cards-and-improved-seo'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Blog Posts and Pages now include additional <code>&lt;meta&gt;</code> HTML Headers to enable support for
+<a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards">Twitter Cards</a> in both
+Twitter and Meta's new <a href="https://threads.net">threads.net</a>, e.g:</p>
+<div class="not-prose my-8 flex justify-center">
+   <a class="block max-w-2xl" href="https://www.threads.net/@servicestack/post/CvIFobPBs5h">
+      <div class="block flex justify-center shadow hover:shadow-lg rounded overflow-hidden">
+         <img class="py-8" src="https://docs.servicestack.net/img/pages/release-notes/v6.10/twitter-cards.png">
+      </div>
+   </a>
+</div>
+<h3 id="posts-can-include-vue-components">Posts can include Vue Components<a class="header-anchor" href="javascript:;" onclick="location.hash='#posts-can-include-vue-components'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>Blog Posts can now embed any global Vue Components directly in their Markdown, e.g:</p>
+<pre><code class="language-html">&lt;getting-started template=&quot;razor-ssg&quot;&gt;&lt;/getting-started&gt;
+</code></pre>
+<h4 id="mjscomponentsgettingstarted.mjs"><a href="https://github.com/NetCoreTemplates/razor-ssg/blob/main/MyApp/wwwroot/mjs/components/GettingStarted.mjs">/mjs/components/GettingStarted.mjs</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#mjscomponentsgettingstarted.mjs'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
+<div class="not-prose my-20 flex justify-center">
+    <getting-started template="razor-ssg"></getting-started>
+</div>
+<p>Just like Pages and Docs they can also include specific JavaScript <strong>.mjs</strong> or <strong>.css</strong> in the <code>/wwwroot/posts</code> folder
+which will only be loaded for that post:</p>
+<p><file-layout :files="{
+wwwroot: { 
+posts: { _: ['<slug>.mjs','<slug>.css'] },
+}
+}"></file-layout></p>
+<p>Now posts that need it can dynamically load large libraries like <a href="https://www.chartjs.org">Chart.js</a> and use it
+inside a custom Vue component by creating a custom <code>/posts/&lt;slug&gt;.mjs</code> that exports what components and features
+your blog post needs, e.g:</p>
+<h4 id="postsnew-blog-features.mjs"><a href="https://github.com/NetCoreTemplates/razor-ssg/blob/main/MyApp/wwwroot/posts/new-blog-features.mjs">/posts/new-blog-features.mjs</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#postsnew-blog-features.mjs'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
+<pre><code class="language-js">import ChartJs from './components/ChartJs.mjs'
+
+export default {
+    components: { ChartJs }
+}
+</code></pre>
+<p>In this case it enables support for <a href="https://www.chartjs.org">Chart.js</a> by including a custom Vue component that makes it
+easy to create charts from Vue Components embedded in markdown:</p>
+<h4 id="postscomponentschartjs.mjs"><a href="https://github.com/NetCoreTemplates/razor-ssg/blob/main/MyApp/wwwroot/posts/components/ChartJs.mjs">/posts/components/ChartJs.mjs</a><a class="header-anchor" href="javascript:;" onclick="location.hash='#postscomponentschartjs.mjs'" aria-label="Permalink">&ZeroWidthSpace;</a></h4>
+<pre><code class="language-js">import { ref, onMounted } from &quot;vue&quot;
+import { addScript } from &quot;@servicestack/client&quot;
+
+let loadJs = addScript('https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js')
+
+export default {
+    template:`&lt;div&gt;&lt;canvas ref=&quot;chart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;`,
+    props:['type','data','options'],
+    setup(props) {
+        const chart = ref()
+        onMounted(async () =&gt; {
+            await loadJs
+
+            const options = props.options || {
+                responsive: true,
+                legend: {
+                    position: &quot;top&quot;
+                }
+            }
+            new Chart(chart.value, {
+                type: props.type || &quot;bar&quot;,
+                data: props.data,
+                options,
+            })
+
+        })
+        return { chart }
+    }
+}
+</code></pre>
+<p>Which allows this post to embed Chart.js charts using the above custom <code>&lt;chart-js&gt;</code> Vue component and a JS Object literal, e.g:</p>
+<pre><code class="language-html">&lt;chart-js :data=&quot;{
+    labels: [
+        //...
+    ],
+    datasets: [
+        //...
+    ]
+}&quot;&gt;&lt;/chart-js&gt;
+</code></pre>
+<p>Which the <a href="https://servicestack.net/posts/bulk-insert-performance">Bulk Insert Performance</a> Blog Post uses extensively to embeds its
+Chart.js Bar charts:</p>
+<p><chart-js :data="{
+labels: [
+'10,000 Rows',
+'100,000 Rows'
+],
+datasets: [
+{
+label: 'SQLite Memory',
+backgroundColor: 'rgba(201, 203, 207, 0.2)',
+borderColor: 'rgb(201, 203, 207)',
+borderWidth: 1,
+data: [17.066, 166.747]
+},
+{
+label: 'SQLite Disk',
+backgroundColor: 'rgba(255, 99, 132, 0.2)',
+borderColor: 'rgb(255, 99, 132)',
+borderWidth: 1,
+data: [20.224, 199.697]
+},
+{
+label: 'PostgreSQL',
+backgroundColor: 'rgba(153, 102, 255, 0.2)',
+borderColor: 'rgb(153, 102, 255)',
+borderWidth: 1,
+data: [14.389, 115.645]
+},
+{
+label: 'MySQL',
+backgroundColor: 'rgba(54, 162, 235, 0.2)',
+borderColor: 'rgb(54, 162, 235)',
+borderWidth: 1,
+data: [64.389, 310.966]
+},
+{
+label: 'MySqlConnector',
+backgroundColor: 'rgba(255, 159, 64, 0.2)',
+borderColor: 'rgb(255, 159, 64)',
+borderWidth: 1,
+data: [64.427, 308.574]
+},
+{
+label: 'SQL Server',
+backgroundColor: 'rgba(255, 99, 132, 0.2)',
+borderColor: 'rgb(255, 99, 132)',
+borderWidth: 1,
+data: [89.821, 835.181]
+}
+]
+}"></chart-js></p>
+<h3 id="improved-discoverability">Improved Discoverability<a class="header-anchor" href="javascript:;" onclick="location.hash='#improved-discoverability'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>To improve discoverability and increase site engagement, bottom of blog posts now include links to other posts by
+the same Blog Author, including links to connect to their preferred social networks and contact preferences:</p>
+<p><img src="https://servicestack.net/img/posts/razor-ssg/other-author-posts.png" alt="" /></p>
+<h3 id="light-and-dark-mode-query-params">Light and Dark Mode Query Params<a class="header-anchor" href="javascript:;" onclick="location.hash='#light-and-dark-mode-query-params'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>You can link to Dark and Light modes of your Razor SSG website with the <code>?light</code> and <code>?dark</code> query string params:</p>
+<ul>
+<li><a href="https://razor-ssg.web-templates.io/?dark">https://razor-ssg.web-templates.io/?dark</a></li>
+<li><a href="https://razor-ssg.web-templates.io/?light">https://razor-ssg.web-templates.io/?light</a></li>
+</ul>
+<h3 id="blog-post-authors-new-threads.net-and-mastodon-links">Blog Post Authors new threads.net and Mastodon links<a class="header-anchor" href="javascript:;" onclick="location.hash='#blog-post-authors-new-threads.net-and-mastodon-links'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<p>The social links for Blog Post Authors can now include <a href="https://threads.net">threads.net</a> and
+<a href="https://mastodon.social">mastodon.social</a> links in their App configurations:</p>
+<pre><code class="language-json">{
+  &quot;AppConfig&quot;: {
+    &quot;BlogImageUrl&quot;: &quot;https://servicestack.net/img/logo.png&quot;,
+    &quot;Authors&quot;: [
+      {
+        &quot;Name&quot;: &quot;Lucy Bates&quot;,
+        &quot;Email&quot;: &quot;lucy@email.org&quot;,
+        &quot;ProfileUrl&quot;: &quot;img/authors/author1.svg&quot;,
+        &quot;TwitterUrl&quot;: &quot;https://twitter.com/lucy&quot;,
+        &quot;ThreadsUrl&quot;: &quot;https://threads.net/@lucy&quot;,
+        &quot;GitHubUrl&quot;: &quot;https://github.com/lucy&quot;,
+        &quot;MastodonUrl&quot;: &quot;https://mastodon.social/@lucy&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+
+                </div>
+            </div>
+        </article>
+</div>
+
+<div data-post="PostComments" class="my-48"></div>
+
+<script type="module">
+import { init } from "app.mjs"
+init()
+</script>
+
+<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets/styles/atom-one-dark.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script>hljs.highlightAll()</script>
+<script src="lib/js/lite-yt-embed.js"></script>
+<script src="mjs/docs.mjs" type="module"></script>
+
+<script type="module">
+import { mount } from "app.mjs"
+
+        import App from "./posts/new-blog-features.mjs" 
+    mount('#post', App)
+</script>
+
+  </main>
+</div>
+
+
+<script type="module">
+import { init } from "app.mjs"
+init()
+</script>
+
+
+
+</body>
+</html>
