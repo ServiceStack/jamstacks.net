@@ -420,7 +420,9 @@ instant API-enabled form with validation binding by just specifying the Request 
 <AutoCreateForm type="CreateBooking" formStyle="card" />
 ```
 
-<auto-create-form type="CreateBooking" form-style="card"></auto-create-form>
+<div class="not-prose">
+    <auto-create-form type="CreateBooking" form-style="card"></auto-create-form>
+</div>
 
 The AutoForm components are powered by your [App Metadata](https://docs.servicestack.net/vue//use-appmetadata) which allows creating 
 highly customized UIs from [declarative C# attributes](https://docs.servicestack.net/locode/declarative) whose customizations are
