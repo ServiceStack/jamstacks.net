@@ -10,7 +10,7 @@
     </image>
     <generator>razor-ssg</generator>
     <copyright></copyright>
-    <lastBuildDate>Thu, 07 Sep 2023 06:12:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 Sep 2023 17:47:16 GMT</lastBuildDate>
     <managingEditor>team@servicestack.net (Team ServiceStack)</managingEditor>
     <webMaster>team@servicestack.net (Team ServiceStack)</webMaster>
     <atom:link href="https://jamstacks.net/feed.xml" rel="self" type="application/rss+xml" />
@@ -81,17 +81,6 @@
         <link>https://jamstacks.net/posts/javascript</link>
         <author>demis@servicestack.com (Demis Bellot)</author>
         <guid isPermaLink="false">https://jamstacks.net/posts/javascript</guid>
-        <pubDate>Tue, 21 Mar 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-03-21T00:00:00Z</atom:updated>
-        <category>js</category>
-        <category>dev</category>
-        <description>Learn about JS Modules, Vue 3 and available rich UI Components</description>
-    </item>
-    <item>
-        <title>Simple, Modern JavaScript</title>
-        <link>https://jamstacks.net/posts/javascript</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/javascript</guid>
         <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
         <atom:updated>2023-02-01T00:00:00Z</atom:updated>
         <category>js</category>
@@ -128,6 +117,17 @@
         <pubDate>Mon, 02 Jan 2023 00:00:00 GMT</pubDate>
         <atom:updated>2023-01-02T00:00:00Z</atom:updated>
         <description>Exploring cost &amp; scalability benefits of hybrid CDN &amp; .NET Apps</description>
+    </item>
+    <item>
+        <title>Deployment with GitHub Actions</title>
+        <link>https://jamstacks.net/posts/deploy</link>
+        <author>darren@servicestack.com (Darren Reid)</author>
+        <guid isPermaLink="false">https://jamstacks.net/posts/deploy</guid>
+        <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+        <atom:updated>2023-01-01T00:00:00Z</atom:updated>
+        <category>github-actions</category>
+        <category>devops</category>
+        <description>Configuring your GitHub repo for SSH and CDN deployments</description>
     </item>
 </channel>
 </rss>
