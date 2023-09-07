@@ -1,6 +1,6 @@
 import { createApp, reactive, ref } from "vue"
 import { JsonApiClient, $1, $$ } from "@servicestack/client"
-import ServiceStackVue from "@servicestack/vue"
+import ServiceStackVue, { useMetadata } from "@servicestack/vue"
 import HelloApi from "./components/HelloApi.mjs"
 import GettingStarted from "./components/GettingStarted.mjs"
 import ShellCommand from "./components/ShellCommand.mjs"
@@ -96,7 +96,11 @@ export function mountAll() {
 /** @param {any} [exports] */
 export function init(exports) {
     if (AppData.init) return
-    client = JsonApiClient.create()
+    client = JsonApiClient.create('https://blazor-gallery-api.jamstacks.net')
+    const { loadMetadata } = useMetadata()
+    loadMetadata({
+        olderThan: 24 * 60 * 60 * 1000, //1day
+    })
     AppData = reactive(AppData)
     AppData.init = true
     mountAll()
