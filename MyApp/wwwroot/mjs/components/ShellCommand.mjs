@@ -26,7 +26,7 @@ export default {
         function copy(e) {
             let $el = document.createElement("input")
             let $lbl = e.target.parentElement.querySelector('label')
-                $el.setAttribute("value", $lbl.innerText)
+            $el.setAttribute("value", $lbl.innerText)
             document.body.appendChild($el)
             $el.select()
             document.execCommand("copy")
