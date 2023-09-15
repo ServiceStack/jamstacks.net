@@ -70,7 +70,7 @@ public class MarkdownBlog : MarkdownPagesBase<MarkdownFileInfo>
 
     public string GetPostLink(MarkdownFileInfo post) => $"posts/{post.Slug}";
 
-    public string GetPostsLink() => "posts";
+    public string GetPostsLink() => "posts/";
     public string? GetAuthorLink(string? author) => author != null && Authors.Any(x => x.Name.Equals(author, StringComparison.OrdinalIgnoreCase))
         ? $"posts/author/{author.GenerateSlug()}"
         : null;
