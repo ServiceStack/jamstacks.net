@@ -1,9 +1,9 @@
 ---
 title: Razor Press for fast and Beautiful Documentation
 url: https://youtu.be/uqEa_DfFFDQ
-tags: razor-pages,ssg,tailwind,vue
+tags: [razor-pages,ssg,tailwind,vue]
 date: 08-02-2022
-order: 2
+order: 4
 ---
 
 Razor Press is a **Razor Pages** and **Markdown** powered alternative to Ruby's Jekyll & Vue's VitePress 
