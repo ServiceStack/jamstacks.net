@@ -127,14 +127,37 @@ mountAll()
         </div>
     </section>
     <section class="w-full flex flex-col justify-center text-center">
+        <div id="ssr" class="mt-4 mb-2">
+            <h3 class="text-gray-400 text-xl mb-2">SSR Templates</h3>
+            <div class="flex flex-wrap justify-center">
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor" :tags="['ssr','server']" :count="count('blazor')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-vue" :tags="['ssr','vue']" :count="count('blazor-vue')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="w-full flex flex-col justify-center text-center">
         <div id="spa" class="mt-4 mb-2">
             <h3 class="text-gray-400 text-xl mb-2">SPA Templates</h3>
             <div class="flex flex-wrap justify-center">
                 <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-tailwind" :tags="['autoquery','auth']" :count="count('blazor-tailwind')">
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-wasm" :tags="['ssr','auto']" :count="count('blazor-wasm')">
                         <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor WASM</div>
                         <template #icon>
-                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.31.74 1.91 1.35c.98 1 2.09 2.15 4.59 2.15c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C15.61 7.15 14.5 6 12 6m-5 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.3.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C10.61 13.15 9.5 12 7 12Z"/></svg>
+                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
                         </template>
                     </project-template>
                 </div>
@@ -143,29 +166,6 @@ mountAll()
                         <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue Vite</div>
                         <template #icon>
                             <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
-                        </template>
-                    </project-template>
-                </div>
-                <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-wasm" :tags="['autoquery','auth']" :count="count('blazor-tailwind')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor WASM</div>
-                        <template #icon>
-                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="256" height="204" viewBox="0 0 256 204"><path fill="#7E13F8" d="M53.172 0C38.565 0 27.756 12.785 28.24 26.65c.465 13.32-.139 30.573-4.482 44.642C19.402 85.402 12.034 94.34 0 95.488v12.956c12.034 1.148 19.402 10.086 23.758 24.197c4.343 14.069 4.947 31.32 4.482 44.641c-.484 13.863 10.325 26.65 24.934 26.65h149.673c14.608 0 25.414-12.785 24.93-26.65c-.464-13.32.139-30.572 4.482-44.641c4.359-14.11 11.707-23.05 23.741-24.197V95.488c-12.034-1.148-19.382-10.086-23.74-24.196c-4.344-14.067-4.947-31.321-4.483-44.642C228.261 12.787 217.455 0 202.847 0H53.17h.002ZM173.56 125.533c0 19.092-14.24 30.67-37.872 30.67h-40.23a4.339 4.339 0 0 1-4.338-4.339V52.068a4.339 4.339 0 0 1 4.339-4.34h39.999c19.705 0 32.637 10.675 32.637 27.063c0 11.503-8.7 21.801-19.783 23.604v.601c15.089 1.655 25.248 12.104 25.248 26.537Zm-42.26-64.05h-22.937v32.4h19.32c14.934 0 23.17-6.014 23.17-16.764c0-10.073-7.082-15.636-19.552-15.636Zm-22.937 45.256v35.705h23.782c15.548 0 23.786-6.239 23.786-17.965c0-11.728-8.467-17.742-24.786-17.742h-22.782v.002Z"/></svg>
-                        </template>
-                    </project-template>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="w-full flex flex-col justify-center text-center">
-        <div id="ssr" class="mt-4 mb-2">
-            <h3 class="text-gray-400 text-xl mb-2">SSR Templates</h3>
-            <div class="flex flex-wrap justify-center">
-                <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-server" :tags="['autoquery','auth']" :count="count('blazor-server')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor Server</div>
-                        <template #icon>
-                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.31.74 1.91 1.35c.98 1 2.09 2.15 4.59 2.15c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C15.61 7.15 14.5 6 12 6m-5 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.3.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C10.61 13.15 9.5 12 7 12Z"/></svg>
                         </template>
                     </project-template>
                 </div>
@@ -200,6 +200,71 @@ mountAll()
                         <a href="https://docs.servicestack.net/templates-overview" class="ml-2 text-sm font-semibold leading-6">Learn more <span aria-hidden="true">→</span></a>                
                 </p>
                 <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="ujbTGn4IwFs" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/ujbTGn4IwFs/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">November 22, 2023</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vue</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/ujbTGn4IwFs">
+                                            Fast, SEO-friendly, Blazor Static Rendered Apps with Vue
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>The new <strong>Blazor Vue</strong> template is ideal for building Fast, SEO-friendly, 100% statically rendered Blazor Web Apps where
+all its dynamic functionally uses Vue.js to progressively enhance Blazor's statically rendered content - eliminating Blazor's
+current limitations of being able to use Blazor SSR to develop an entire App without any of Blazor Interactivity downsides.</p>
+<p>The new <a href="/posts/net8-best-blazor">blazor-vue</a> template implements all the features of the <a href="/posts/net8-blazor-template">blazor</a>
+template but reimplements all its interactive features with <strong>Vue.js</strong> to and the
+<a href="https://docs.servicestack.net/vue/">Vue Components library</a>, with both templates combining the latest advancements in
+Blazor .NET 8 with <strong>Tailwind CSS</strong> styling for creating beautiful Responsive Websites with support for Dark Mode.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="hqyozHSL0Nk" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/hqyozHSL0Nk/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">November 21, 2023</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/hqyozHSL0Nk">
+                                            Blazor Tailwind App for .NET 8
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>ServiceStack's new Blazor project template takes advantage of .NET 8 Blazor's new features that redefines modern Web
+Development in C# which we explore in this video overview, covering how the template adopts Blazor's familiar ASP.NET
+Core Identity and Entity Framework for its authentication, utilizes the modern Tailwind CSS framework for beautiful
+responsive design and adopts .NET's best-practice Docker Containerization support for its built-in GitHub Action
+Deployments - enabling a simple ready-made CI solution for deployment to any Linux Host via SSH and Docker compose.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
                         <article class="relative isolate flex flex-col gap-8 lg:flex-row">
                             <div class="relative lg:w-1/2 lg:shrink-0">
                                 <lite-youtube width="560" height="315" videoid="MRQMBrXi5Sc" class="border border-slate-300 dark:border-slate-600"
@@ -276,8 +341,8 @@ can be hosted for FREE on GitHub Pages CDN.</p>
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">February 1, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vite</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">jamstack</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vite</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> jamstack</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -322,6 +387,73 @@ while employing the Jamstack architecture leveraging capabilities of Vite, Vue &
 exceptional rapid development cycle when used with JetBrains Rider.</p>
 <p>This template is specifically designed for Microsoft .NET developers seeking a seamless and efficient Next.js React
 setup while employing the better performing Jamstack architecture.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="4HphWPrKwb0" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/4HphWPrKwb0/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">May 21, 2021</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/4HphWPrKwb0">
+                                            Rapidly develop .NET Vue.js SPA Apps
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>In this video tutorial, we will guide you through the process of utilizing the vue-spa template, an exceptional project template
+that combines the power of ServiceStack and Vue.js to create a seamless development experience.</p>
+<p>This template is specifically designed to optimize rapid iterative dev cycles, allowing developers to quickly iterate on their
+frontend and backend changes.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+                            <div class="relative lg:w-1/2 lg:shrink-0">
+                                <lite-youtube width="560" height="315" videoid="SyppvQB7IPs" class="border border-slate-300 dark:border-slate-600"
+                                              style="margin-bottom:3px;background-image: url('https://img.youtube.com/vi/SyppvQB7IPs/maxresdefault.jpg')">
+                                </lite-youtube>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-x-4 text-xs">
+                                    <time datetime="2020-03-16" class="text-gray-500">July 6, 2021</time>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">razor-pages</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> mvc</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vue</span>
+                                </div>
+                                <div class="group relative max-w-xl">
+                                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                        <a href="https://youtu.be/SyppvQB7IPs">
+                                            Modern Razor Pages &amp; MVC .NET Tailwind templates
+                                        </a>
+                                    </h3>
+                                    <div class="mt-5 text-sm leading-6 text-gray-600">
+                                        <div class="prose">
+                                            <p>ServiceStack templates provide a wide range of options when it comes to using Razor Pages in your .NET application</p>
+<p>These templates come with Tailwind, JS Modules, and Vue components already built-in,
+making it easy to build hybrid apps containing both Server-Side Rendering (SSR) and static resources</p>
+<h3 id="live-demos">Live Demos<a class="header-anchor" href="javascript:;" onclick="location.hash='#live-demos'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<ul>
+<li><a href="https://blazor-vue.web-templates.io">https://blazor-vue.web-templates.io</a></li>
+<li><a href="https://razor.web-templates.io">https://razor.web-templates.io</a></li>
+<li><a href="https://mvc.web-templates.io">https://mvc.web-templates.io</a></li>
+<li><a href="https://web-tailwind.web-templates.io">https://web-tailwind.web-templates.io</a></li>
+</ul>
 
                                         </div>
                                     </div>
@@ -756,8 +888,10 @@ dynamic features are powered by an external CreatorKit instance.</p>
                                     </h3>
                                     <div class="mt-5 text-sm leading-6 text-gray-600">
                                         <div class="prose">
-                                            <p>In this video, we demonstrate using the @servicestack/vue components library for Vue.js 3 Multipage Apps (MPAs) along with the <code>vue-mjs</code> template.</p>
-<p>The template illustrates building content-heavy or complex sites while avoiding the intricacies of Single Page Apps (SPAs) through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and ServiceStack.</p>
+                                            <p>In this video, we demonstrate using the @servicestack/vue components library for Vue.js 3 Multipage Apps (MPAs) along
+with the <strong>vue-mjs</strong> template.</p>
+<p>The template illustrates building content-heavy or complex sites while avoiding the intricacies of Single Page Apps (SPAs)
+through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and ServiceStack.</p>
 
                                         </div>
                                     </div>
