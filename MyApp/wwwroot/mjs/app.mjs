@@ -1,5 +1,5 @@
 import { createApp, reactive, ref } from "vue"
-import { JsonApiClient, $1, $$ } from "@servicestack/client"
+import { JsonServiceClient, $1, $$ } from "@servicestack/client"
 import ServiceStackVue, { useMetadata } from "@servicestack/vue"
 import HelloApi from "./components/HelloApi.mjs"
 import GettingStarted from "./components/GettingStarted.mjs"
@@ -7,6 +7,11 @@ import ShellCommand from "./components/ShellCommand.mjs"
 import VueComponentGallery from "./components/VueComponentGallery.mjs"
 import VueComponentLibrary from "./components/VueComponentLibrary.mjs"
 import ProjectTemplate from "./components/ProjectTemplate.mjs"
+import ProjectCreator from "./components/ProjectCreator.mjs"
+import { PagingNav, FileLayout } from './components/CreatorKitDocs.mjs'
+import CopyBlock from "../posts/components/CopyBlock.mjs"
+import VibeTemplate from "../posts/components/VibeTemplate.mjs"
+import ScreenshotsGallery from "../posts/components/ScreenshotsGallery.mjs"
 
 let client = null, Apps = []
 let AppData = {
@@ -50,7 +55,16 @@ const Components = {
     VueComponentGallery,
     VueComponentLibrary,
     ProjectTemplate,
+    ProjectCreator,
+    PagingNav,
+    FileLayout,
+    CopyBlock,
+    VibeTemplate,
+    ScreenshotsGallery,
 }
+const CustomElements = [
+    'lite-youtube'
+]
 
 const alreadyMounted = el => el.__vue_app__ 
 
@@ -71,9 +85,36 @@ export function mount(sel, component, props) {
     })
     app.use(ServiceStackVue)
     app.component('RouterLink', ServiceStackVue.component('RouterLink'))
+    app.directive('hash', (el,binding) => {
+        /** @param {Event} e */
+        el.onclick = (e) => {
+            e.preventDefault()
+            location.hash = binding.value
+        }
+    })
+    if (component.install) {
+        component.install(app)
+    }
+    if (client && !app._context.provides.client) {
+        app.provide('client', client)
+    }
+    app.config.compilerOptions.isCustomElement = tag => CustomElements.includes(tag)
     app.mount(el)
     Apps.push(app)
     return app
+}
+
+export function unmount(el) {
+    if (!el) return
+
+    try {
+        if (el.__vue_app__) {
+            el.__vue_app__.unmount(el)
+        }
+    } catch (e) {
+        console.log('force unmount', el.id)
+        el._vnode = el.__vue_app__ = undefined
+    }
 }
 
 export function mountAll() {
@@ -96,11 +137,11 @@ export function mountAll() {
 /** @param {any} [exports] */
 export function init(exports) {
     if (AppData.init) return
-    client = JsonApiClient.create('https://blazor-gallery-api.jamstacks.net')
+    client = new JsonServiceClient('https://blazor-gallery.jamstacks.net')
     const { loadMetadata } = useMetadata()
     loadMetadata({
         olderThan: 24 * 60 * 60 * 1000, //1day
-        resolvePath: `https://blazor-gallery-api.jamstacks.net/metadata/app.json`
+        resolvePath: `https://blazor-gallery.jamstacks.net/metadata/app.json`
     })
     AppData = reactive(AppData)
     AppData.init = true
@@ -110,17 +151,4 @@ export function init(exports) {
         exports.client = client
         exports.Apps = Apps
     }
-}
-
-/* used in :::sh and :::nuget CopyContainerRenderer */
-globalThis.copy = function(e) {
-    e.classList.add('copying')
-    let $el = document.createElement("textarea")
-    let text = (e.querySelector('code') || e.querySelector('p')).innerHTML
-    $el.innerHTML = text
-    document.body.appendChild($el)
-    $el.select()
-    document.execCommand("copy")
-    document.body.removeChild($el)
-    setTimeout(() => e.classList.remove('copying'), 3000)
 }

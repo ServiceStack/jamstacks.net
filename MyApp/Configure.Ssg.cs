@@ -7,11 +7,10 @@ namespace MyApp;
 public class ConfigureSsg : IHostingStartup
 {
     public void Configure(IWebHostBuilder builder) => builder
-        .ConfigureServices((context, services) =>
+        .ConfigureServices(services =>
         {
-            context.Configuration.GetSection(nameof(AppConfig)).Bind(AppConfig.Instance);
-            services.AddSingleton(AppConfig.Instance);
             services.AddSingleton<RazorPagesEngine>();
+            services.AddSingleton<MarkdownIncludes>();
             services.AddSingleton<MarkdownPages>();
             services.AddSingleton<MarkdownVideos>();
             services.AddSingleton<MarkdownBlog>();
@@ -21,29 +20,42 @@ public class ConfigureSsg : IHostingStartup
             appHost => appHost.Plugins.Add(new CleanUrlsFeature()),
             afterPluginsLoaded: appHost =>
             {
+                MarkdigConfig.Set(new MarkdigConfig
+                {
+                    ConfigurePipeline = pipeline =>
+                    {
+                        // Extend Markdig Pipeline
+                    },
+                    ConfigureContainers = config =>
+                    {
+                        config.AddBuiltInContainers();
+                        // Add Custom Block or Inline containers
+                    }
+                });
+
+                var includes = appHost.Resolve<MarkdownIncludes>();
                 var pages = appHost.Resolve<MarkdownPages>();
                 var videos = appHost.Resolve<MarkdownVideos>();
                 var blogPosts = appHost.Resolve<MarkdownBlog>();
                 var meta = appHost.Resolve<MarkdownMeta>();
+
+                //blogPosts.Authors = BlogConfig.Instance.Authors;
+                meta.Features = [pages, videos, blogPosts];
                 
-                meta.Features = new() { pages, videos, blogPosts };
-                meta.Features.ForEach(x => x.VirtualFiles = appHost.VirtualFiles);
-
-                blogPosts.Authors = AppConfig.Instance.Authors;
-
+                includes.LoadFrom("_includes");
                 pages.LoadFrom("_pages");
                 videos.LoadFrom("_videos");
                 blogPosts.LoadFrom("_posts");
+                AppConfig.Instance.Init(appHost.ContentRootDirectory);
             },
             afterAppHostInit: appHost =>
             {
                 // prerender with: `$ npm run prerender` 
                 AppTasks.Register("prerender", args =>
                 {
-                    var baseUrl = RazorSsg.GetBaseUrl() ?? "https://localhost:5002";
                     appHost.Resolve<MarkdownMeta>().RenderToAsync(
                         metaDir: appHost.ContentRootDirectory.RealPath.CombineWith("wwwroot/meta"),
-                        baseUrl: baseUrl).GetAwaiter().GetResult();
+                        baseUrl: HtmlHelpers.ToAbsoluteContentUrl("")).GetAwaiter().GetResult();
 
                     var distDir = appHost.ContentRootDirectory.RealPath.CombineWith("dist");
                     if (Directory.Exists(distDir))
@@ -51,27 +63,16 @@ public class ConfigureSsg : IHostingStartup
                     FileSystemVirtualFiles.CopyAll(
                         new DirectoryInfo(appHost.ContentRootDirectory.RealPath.CombineWith("wwwroot")),
                         new DirectoryInfo(distDir));
+                    
+                    // Render .html redirect files
+                    RazorSsg.PrerenderRedirectsAsync(appHost.ContentRootDirectory.GetFile("redirects.json"), distDir)
+                        .GetAwaiter().GetResult();
+
                     var razorFiles = appHost.VirtualFiles.GetAllMatchingFiles("*.cshtml");
                     RazorSsg.PrerenderAsync(appHost, razorFiles, distDir).GetAwaiter().GetResult();
                 });
             });
 }
-
-public class AppConfig
-{
-    public static AppConfig Instance { get; } = new();
-    public string LocalBaseUrl { get; set; }
-    public string PublicBaseUrl { get; set; }
-    public string? GitPagesBaseUrl { get; set; }
-    public string? SiteTwitter { get; set; }
-    public List<AuthorInfo> Authors { get; set; } = new();
-    public string? BlogTitle { get; set; }
-    public string? BlogDescription { get; set; }
-    public string? BlogEmail { get; set; }
-    public string? CopyrightOwner { get; set; }
-    public string? BlogImageUrl { get; set; }
-}
-
 
 // Add additional frontmatter info to include
 public class MarkdownFileInfo : MarkdownFileBase

@@ -10,8 +10,6 @@
     <title>@ViewData["Title"]</title>
     <base href="@(RazorSsg.GetBaseHref() ?? "/")" />
     <script>
-    if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
-    if (location.search === "?light") localStorage.removeItem('color-scheme') 
     const cls = document.querySelector('html').classList
     if (localStorage.getItem('color-scheme') === 'dark')
         cls.add('dark')
@@ -63,13 +61,6 @@
   </main>
 </div>
 
-
-<script type="module">
-import { init } from "app.mjs"
-init()
-</script>
-
-@await RenderSectionAsync("Scripts", required: false)
-
+@await Html.PartialAsync("Footer")
 </body>
 </html>

@@ -1,6 +1,7 @@
-﻿@page "/{slug}"
+﻿@page "/{Slug}"
 @model MyApp.Page
 @inject MarkdownPages Markdown
+@inject AppConfig AppConfig
 
 @implements IRenderStatic<MyApp.Page>
 @functions {
@@ -25,7 +26,14 @@
     ViewData["Title"] = doc.Title;
 }
 
+@section head {
+    @await Html.PartialAsync("MetaHeaders", new Shared.MetaHeaders(doc) {
+        CanonicalUrl = AppConfig.PublicBaseUrl.CombineWith(doc.Slug),
+    })
+}
+
 <link rel="stylesheet" href="css/typography.css">
+<style>.prose { max-width: 65ch }</style>
 <section class="flex-col md:flex-row flex justify-center mt-16 mb-16 md:mb-12">
     <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl">
         @doc.Title
@@ -39,3 +47,4 @@
 
 @await Html.PartialAsync("HighlightIncludes")
 <script>hljs.highlightAll()</script>
+<script src="mjs/docs.mjs" type="module"></script>

@@ -10,19 +10,21 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v5
 
       - name: setup .net core
-        uses: actions/setup-dotnet@v1.7.2
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 6.0.100
+          dotnet-version: 10.0.x
 
       - name: build
         working-directory: ./MyApp
-        run: dotnet build .
+        run: |
+          dotnet --info
+          dotnet build .
 
       - name: Assign default GitHub URL base path
         env:
@@ -45,6 +47,12 @@ jobs:
             fi
           fi
 
+      - name: Install tailwindcss
+        run: |
+          mkdir -p /home/runner/.local/bin
+          curl -o "/home/runner/.local/bin/tailwindcss" -L "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64"
+          chmod +x /home/runner/.local/bin/tailwindcss
+
       - name: Build tailwind
         working-directory: ./MyApp
         run: |
@@ -54,14 +62,13 @@ jobs:
         working-directory: ./MyApp
         run: |
           site_base_href=${{ env.ssg_base_href }}
-          site_base_url="https://${{ env.custom_domain }}"
           if [ ! -z "$site_base_href" ]
           then
             echo "Prerendering for deployment to $site_base_href"
-            dotnet run --AppTasks=prerender --environment Production --BaseHref "$site_base_href"
+            dotnet run --no-launch-profile --AppTasks=prerender --configuration Release --environment Production --BaseHref "$site_base_href"
           else
-            echo "Prerendering for deployment to $custom_domain"
-            dotnet run --AppTasks=prerender --environment Production --BaseUrl "$site_base_url"
+            echo "Prerendering for deployment to $(cat ./wwwroot/CNAME)"
+            dotnet run --no-launch-profile --AppTasks=prerender --configuration Release --environment Production
           fi
 
       # Deploy UI to GitHub Pages
