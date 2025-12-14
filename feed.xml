@@ -1,133 +1,146 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
     <title>From the blog</title>
-    <link>https://jamstacks.net/blog</link>
-    <description>Learnings, recommendations &amp; new features from ServiceStack engineers</description>
+    <link>https://razor-ssg.web-templates.io/blog</link>
+    <description>Writing on software design, company building, and the aerospace industry.</description>
     <image>
         <url>https://servicestack.net/img/logo.png</url>
         <title>From the blog</title>
-        <link>https://jamstacks.net/blog</link>
+        <link>https://razor-ssg.web-templates.io/blog</link>
     </image>
     <generator>razor-ssg</generator>
     <copyright></copyright>
-    <lastBuildDate>Thu, 12 Sep 2024 05:11:08 GMT</lastBuildDate>
-    <managingEditor>team@servicestack.net (Team ServiceStack)</managingEditor>
-    <webMaster>team@servicestack.net (Team ServiceStack)</webMaster>
-    <atom:link href="https://jamstacks.net/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 17:39:44 GMT</lastBuildDate>
+    <managingEditor>email@example.org (Razor SSG)</managingEditor>
+    <webMaster>email@example.org (Razor SSG)</webMaster>
+    <atom:link href="https://razor-ssg.web-templates.io/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-        <title>New Blogging features in Razor SSG</title>
-        <link>https://jamstacks.net/posts/razor-ssg-new-blog-features</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/razor-ssg-new-blog-features</guid>
-        <pubDate>Wed, 23 Aug 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-08-23T00:00:00Z</atom:updated>
-        <category>razor</category>
-        <category> markdown</category>
-        <category> blog</category>
-        <category> dev</category>
-        <description>Explore the new Blogging Features in Razor SSG</description>
+        <title>Replacing Legacy UIs in an AI-First world</title>
+        <link>https://razor-ssg.web-templates.io/posts/replacing-legacy-uis</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/replacing-legacy-uis</guid>
+        <pubDate>Sun, 07 Dec 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-12-07T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>react</category>
+        <description>Rewriting legacy UIs on modern AI-First stacks are now cheaper and faster than traditional development.</description>
     </item>
     <item>
-        <title>Introducing Razor Press</title>
-        <link>https://jamstacks.net/posts/razor-press</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/razor-press</guid>
-        <pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-07-17T00:00:00Z</atom:updated>
-        <category>razor</category>
-        <category>markdown</category>
-        <category>blog</category>
-        <category>dev</category>
-        <description>Markdown &amp; Razor Pages Static Site Generator for beautiful fast Content &amp; Documentation</description>
+        <title>New .NET 10 &#x2B; Angular 21 ASP.NET Identity Auth Tailwind SPA Template</title>
+        <link>https://razor-ssg.web-templates.io/posts/angular-template</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/angular-template</guid>
+        <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-12-05T00:00:00Z</atom:updated>
+        <category>angular</category>
+        <category>templates</category>
+        <category>identity-auth</category>
+        <category>autoquery</category>
+        <description>Introducing our new Angular 19 IdentityAuth Tailwind Template with DarkMode and support for RxJS and Signals dev models</description>
     </item>
     <item>
-        <title>Vue Stable Diffusion</title>
-        <link>https://jamstacks.net/posts/vue-stable-diffusion</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/vue-stable-diffusion</guid>
-        <pubDate>Thu, 15 Jun 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-06-15T00:00:00Z</atom:updated>
-        <category>vue</category>
-        <category>tailwind</category>
-        <description>Rewriting Blazor Diffussion image generation &amp; album catalog in Vue &amp; Razor SSG</description>
+        <title>New Vibe Codable .NET 10 React Templates</title>
+        <link>https://razor-ssg.web-templates.io/posts/vibecode-react-templates</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/vibecode-react-templates</guid>
+        <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-12-04T00:00:00Z</atom:updated>
+        <category>react</category>
+        <category>ai</category>
+        <category>autoquery</category>
+        <description>Exploring the new Vibe Codable .NET 10 React Templates and their NodeProxy architecture</description>
     </item>
     <item>
-        <title>Introducing CreatorKit</title>
-        <link>https://jamstacks.net/posts/creatorkit</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/creatorkit</guid>
-        <pubDate>Thu, 08 Jun 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-06-08T00:00:00Z</atom:updated>
-        <category>creatorkit</category>
-        <category>marketing</category>
-        <category>publishing</category>
-        <description>Exploring CreatorKit - an OSS Self-Hosting alternative to Mailchimp and Disqus</description>
+        <title>.NET 10&#x27;s new OpenAPI Scalar &#x2B; Swagger UIs</title>
+        <link>https://razor-ssg.web-templates.io/posts/openapi-net10</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/openapi-net10</guid>
+        <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-12-03T00:00:00Z</atom:updated>
+        <category>.net10</category>
+        <category>openapi</category>
+        <category>swagger</category>
+        <category>scalar</category>
+        <description>ServiceStack v10 adds first-class .NET 10 support and new OpenAPI for Swagger and Scalar UIs.</description>
     </item>
     <item>
-        <title>Introducing Razor SSG</title>
-        <link>https://jamstacks.net/posts/razor-ssg</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/razor-ssg</guid>
-        <pubDate>Tue, 28 Mar 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-03-28T00:00:00Z</atom:updated>
-        <category>razor</category>
-        <category>markdown</category>
-        <category>blog</category>
-        <category>dev</category>
-        <description>Create fast, beautiful statically rendered Razor Websites &amp; Blogs</description>
+        <title>Creating a custom Explorer UI for OpenAIs Chat API</title>
+        <link>https://razor-ssg.web-templates.io/posts/ai-chat-explorer</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/ai-chat-explorer</guid>
+        <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-25T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>openai</category>
+        <category>chat</category>
+        <description>Learning how to create a customized API Explorer API UIs like ChatCompletion&#x27;s UI</description>
     </item>
     <item>
-        <title>Simple, Modern JavaScript</title>
-        <link>https://jamstacks.net/posts/javascript</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/javascript</guid>
-        <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-02-01T00:00:00Z</atom:updated>
-        <category>js</category>
-        <category> dev</category>
-        <description>Learn about JS Modules, Vue 3 and available rich UI Components</description>
+        <title>FREE Gemini, Minimax M2, GLM 4.6, Kimi K2</title>
+        <link>https://razor-ssg.web-templates.io/posts/ai-chat-servicestack</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/ai-chat-servicestack</guid>
+        <pubDate>Fri, 21 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-21T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>chat</category>
+        <category>admin-ui</category>
+        <category>analytics</category>
+        <description>The best OSS language models, now available for FREE in AI Chat!</description>
     </item>
     <item>
-        <title>Develop using JetBrains Rider</title>
-        <link>https://jamstacks.net/posts/rider</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/rider</guid>
-        <pubDate>Wed, 11 Jan 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-01-11T00:00:00Z</atom:updated>
-        <category>c#</category>
-        <category>dev</category>
-        <description>Setting up &amp; exploring development workflow in Rider</description>
+        <title>AI Chat history persistence and Admin Analytics UI</title>
+        <link>https://razor-ssg.web-templates.io/posts/ai-chat-analytics</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/ai-chat-analytics</guid>
+        <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-20T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>chat</category>
+        <category>admin-ui</category>
+        <category>analytics</category>
+        <description>Maintain a persistant history of all AI Chat requests and responses</description>
     </item>
     <item>
-        <title>Develop using Visual Studio</title>
-        <link>https://jamstacks.net/posts/vs</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/vs</guid>
-        <pubDate>Tue, 10 Jan 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-01-10T00:00:00Z</atom:updated>
-        <category>c#</category>
-        <category>dev</category>
-        <description>Exploring development workflow in VS Code and Visual Studio .NET</description>
+        <title>AI Chat - A Simple OpenAI Chat Completions API, UI &amp; Client LLM Gateway</title>
+        <link>https://razor-ssg.web-templates.io/posts/ai-chat</link>
+        <author>lucy@email.org (Lucy Bates)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/ai-chat</guid>
+        <pubDate>Mon, 17 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-17T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>openai</category>
+        <category>chat</category>
+        <description>Unlock the value of OpenAI Chat APIs using a simple, serializable ChatCompletion DTO that works everywhere</description>
     </item>
     <item>
-        <title>Jamstack Hosting Costs @ $.40 /mo</title>
-        <link>https://jamstacks.net/posts/jamstacks_hosting</link>
-        <author>demis@servicestack.com (Demis Bellot)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/jamstacks_hosting</guid>
-        <pubDate>Mon, 02 Jan 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-01-02T00:00:00Z</atom:updated>
-        <description>Exploring cost &amp; scalability benefits of hybrid CDN &amp; .NET Apps</description>
+        <title>React &#x2B; Tailwind &#x2B; TypeScript for AI-First Development</title>
+        <link>https://razor-ssg.web-templates.io/posts/react</link>
+        <author>gayle@email.org (Gayle Smith)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/react</guid>
+        <pubDate>Thu, 13 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-13T00:00:00Z</atom:updated>
+        <category>react</category>
+        <category>autoquery</category>
+        <category>admin</category>
+        <description>First-class React support optimized for AI-assisted development with new React component library &amp; project templates</description>
     </item>
     <item>
-        <title>Deployment with GitHub Actions</title>
-        <link>https://jamstacks.net/posts/deploy</link>
-        <author>darren@servicestack.com (Darren Reid)</author>
-        <guid isPermaLink="false">https://jamstacks.net/posts/deploy</guid>
-        <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
-        <atom:updated>2023-01-01T00:00:00Z</atom:updated>
-        <category>github-actions</category>
-        <category>devops</category>
-        <description>Configuring your GitHub repo for SSH and CDN deployments</description>
+        <title>Ask ServiceStack Docs - Introducing AI Search</title>
+        <link>https://razor-ssg.web-templates.io/posts/typesense-ai-search</link>
+        <author>brandon@email.org (Brandon Foley)</author>
+        <guid isPermaLink="false">https://razor-ssg.web-templates.io/posts/typesense-ai-search</guid>
+        <pubDate>Wed, 12 Nov 2025 00:00:00 GMT</pubDate>
+        <atom:updated>2025-11-12T00:00:00Z</atom:updated>
+        <category>llms</category>
+        <category>ai</category>
+        <category>docs</category>
+        <description>Learn about the new AI Search feature - Typesense Conversational RAG for ServiceStack Docs</description>
     </item>
 </channel>
 </rss>

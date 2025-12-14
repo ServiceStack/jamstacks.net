@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="img/logo.svg">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://jamstacks.net/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://razor-ssg.web-templates.io/feed.xml" />
     <title>Jamstack .NET</title>
     <base href="/" />
     <script>
@@ -17,6 +17,7 @@
         cls.remove('dark')
     </script>
     <link rel="stylesheet" href="css/app.css">
+    <style>html { scroll-padding-top: 5rem }</style>
 
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
@@ -32,11 +33,15 @@
     
 </head>
 <body class="bg-white dark:bg-black dark:text-white">
-<header class="border-b border-gray-200 dark:border-gray-600 pr-3">
+<header class="top-0 fixed z-50 h-14 bg-white dark:bg-black opacity-90 w-full shadow pr-3">
     <div class="flex flex-wrap items-center">
         <div class="absolute z-10 top-2 left-2 sm:static flex-shrink flex-grow-0">
             <div class="cursor-pointer">
-                <a aria-current="page" href="/" class="router-link-active router-link-exact-active"><div class="p-4 cursor-pointer flex"><svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" class="w-8 h-8 mr-2 mt-0.5" alt="Jamstacks logo"><path d="M128 0C57.221 0 0 57.221 0 128c0 70.778 57.221 128 128 128c70.778 0 128-57.222 128-128V0H128z" fill="#F0047F"></path><path d="M121.04 134.96v93.312c-49.663-2.837-89.64-42.345-93.215-91.81l-.097-1.502h93.312zm90.962 0c-2.6 49.664-38.816 89.64-84.159 93.215l-1.377.097V134.96h85.536zm.112-91.074v85.648h-85.648V43.886h85.648z" fill="#FFF"></path></svg><span class="text-3xl font-bold">Jamstacks</span><div><div class="ml-2 text-xl bg-purple-600 text-white py-0.5 px-1.5 rounded">.NET</div></div></div></a>
+                <a class="navbar-brand flex items-center" href="./">
+                    <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" class="w-8 h-8 mr-2 mt-0.5" alt="Jamstacks logo"><path d="M128 0C57.221 0 0 57.221 0 128c0 70.778 57.221 128 128 128c70.778 0 128-57.222 128-128V0H128z" fill="#F0047F"></path><path d="M121.04 134.96v93.312c-49.663-2.837-89.64-42.345-93.215-91.81l-.097-1.502h93.312zm90.962 0c-2.6 49.664-38.816 89.64-84.159 93.215l-1.377.097V134.96h85.536zm.112-91.074v85.648h-85.648V43.886h85.648z" fill="#FFF"></path></svg>
+                    <span class="text-3xl font-bold">Jamstacks</span>
+                    <div><div class="ml-2 text-xl bg-purple-600 text-white py-0.5 px-1.5 rounded">.NET</div></div>
+                </a>
             </div>
         </div>
         <div class="flex flex-grow flex-shrink flex-nowrap justify-end items-center">
@@ -73,105 +78,182 @@ mountAll()
 
 
 <div class="min-h-screen">
-    <main role="main" class="pb-3" hx-ext="class-tools">
+    <main role="main" class="pt-14 pb-3">
         
 <div id="app" class="container mx-auto px-5">
     <section class="w-full flex flex-col justify-center text-center">
-        <div id="empty" class="mt-4 mb-2">
+        <div class="mt-4 mb-2">
             <h3 class="mt-8 text-6xl md:text-8xl font-bold tracking-tighter leading-tight">C# Jamstack Projects</h3>
             <p class="my-6 text-xl text-gray-500"> Premier <a class="text-blue-600" title="Static Site Generation" href="https://www.freecodecamp.org/news/static-site-generation-with-nextjs/">SSG</a> &amp; <a class="text-blue-600" title="Single-page application" href="https://en.wikipedia.org/wiki/Single-page_application">SPA</a> Web App templates delivering the ultimate Dev &amp; end-user UX </p>
-            <p class="my-6 text-xl text-gray-500">Download a new Jamstack UI .NET 8 <a class="text-blue-600" href="https://servicestack.net">ServiceStack</a> API project </p>
+            <p class="my-6 text-xl text-gray-500">Download a new Jamstack UI .NET 10 <a class="text-blue-600" href="https://servicestack.net">ServiceStack</a> API project </p>
             <div class="flex justify-center mb-16">
                 <div class="w-70">
                     <input v-model="name" type="text" placeholder="Project Name" autocorrect="off" spellcheck="false" v-on:keypress="isAlphaNumeric"
                            class="mt-1 text-lg block w-full px-3 py-2 bg-white dark:bg-black border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
                 </div>
             </div>
-            <div id="ssg" class="mt-4 mb-2">
-                <h3 class="text-gray-400 text-xl mb-2">SSG Templates</h3>
-                <div class="flex flex-wrap justify-center">
-                    <div>
-                        <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor-ssg" :tags="['ssg','markdown']" :count="count('razor-ssg')">
-                            <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor SSG</div>
-                            <template #icon>
-                                <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M23.844 27.692a16.332 16.332 0 0 1-6.645 1.3q-6.364 0-10.013-3.243a11.3 11.3 0 0 1-3.649-8.9a13.716 13.716 0 0 1 3.785-9.898A12.716 12.716 0 0 1 16.9 3.008a11.676 11.676 0 0 1 8.425 3.006a9.994 9.994 0 0 1 3.142 7.533a10.187 10.187 0 0 1-2.318 7.114a7.532 7.532 0 0 1-5.817 2.547a2.613 2.613 0 0 1-1.845-.642a2.323 2.323 0 0 1-.764-1.6a4.9 4.9 0 0 1-4.148 2.243a4.6 4.6 0 0 1-3.507-1.479a5.706 5.706 0 0 1-1.384-4.063a9.913 9.913 0 0 1 2.2-6.357q2.2-2.763 4.8-2.763a5.063 5.063 0 0 1 4.256 1.716l.311-1.338h2.405l-2.081 9.08a10.716 10.716 0 0 0-.352 2.243q0 .972.744.972a4.819 4.819 0 0 0 3.877-2.047a8.93 8.93 0 0 0 1.621-5.681a7.98 7.98 0 0 0-2.675-6.175a9.887 9.887 0 0 0-6.919-2.432a10.6 10.6 0 0 0-8.158 3.467a12.066 12.066 0 0 0-3.2 8.495a9.561 9.561 0 0 0 3.06 7.573q3.06 2.7 8.586 2.7a13.757 13.757 0 0 0 5.675-1.054ZM19.466 12.25a3.977 3.977 0 0 0-3.6-1.716q-1.824 0-3.263 2.23a8.726 8.726 0 0 0-1.439 4.824q0 3.635 2.905 3.635a3.771 3.771 0 0 0 2.651-1.183a6.309 6.309 0 0 0 1.7-3.2Z"></path></svg>
-                            </template>
-                        </project-template>
-                    </div>
-                    <div>
-                        <project-template :name="name" repo="NetCoreTemplates/nextjs" :tags="['autoquery','auth']" :count="count('nextjs')">
-                            <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Next.js</div>
-                            <template #icon>
-                                <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 11.697 6.216L4.907 4.21A.5.5 0 0 0 4 4.5V12h1V6.06l5.83 8.162A7.5 7.5 0 0 1 0 7.5ZM10 10V4h1v6h-1Z" clip-rule="evenodd"/></svg>
-                            </template>
-                        </project-template>
-                    </div>
-                    <div>
-                        <project-template :name="name" repo="NetCoreTemplates/vue-ssg" :tags="['autoquery','auth']" :count="count('vue-ssg')">
-                            <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue SSG</div>
-                            <template #icon>
-                                <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
-                            </template>
-                        </project-template>
-                    </div>
-                    <div>
-                        <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor-press" :tags="['ssg','markdown']" :count="count('razor-press')">
-                            <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor Press</div>
-                            <template #icon>
-                                <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6v13m9-13v13m9-13v13"></path></svg>
-                            </template>
-                        </project-template>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <section class="w-full flex flex-col justify-center text-center">
-        <div id="ssr" class="mt-4 mb-2">
-            <h3 class="text-gray-400 text-xl mb-2">SSR Templates</h3>
-            <div class="flex flex-wrap justify-center">
+        <div class="mb-4 flex flex-col items-center">
+            <h2 class="my-8 tracking-tight font-semibold text-xl text-slate-600">React &amp; Next.js Tailwind Templates</h2>
+            <div class="flex flex-wrap justify-center gap-x-2">
                 <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor" :tags="['ssr','server']" :count="count('blazor')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor</div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/react-static" :tags="['react','static']" :count="count('react-static')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">React Static</div>
                         <template #icon>
-                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85c-1.03 0-1.87-.85-1.87-1.85c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9c-.6 0-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.03 1.11.03 1.71.03c.6 0 1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63c2.54.75 4.37 1.99 4.37 3.68c0 1.69-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63c-1.46.84-3.45-.12-5.37-1.95c-1.92 1.83-3.91 2.79-5.38 1.95c-1.46-.84-1.62-3.05-1-5.63c-2.54-.75-4.37-1.99-4.37-3.68c0-1.69 1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1-5.63c1.47-.84 3.46.12 5.38 1.95c1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26c2.1-.63 3.28-1.53 3.28-2.26c0-.73-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26c-2.1.63-3.28 1.53-3.28 2.26c0 .73 1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26l-.3.51c.31-.05.61-.1.88-.16c-.07-.28-.18-.57-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 2.97 2.08 3.59 1.7c.64-.35.83-1.82.32-3.96c-.77.16-1.58.28-2.4.36c-.48.67-.99 1.31-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16c.07.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 8 3.62 7.37 4c-.63.35-.82 1.82-.31 3.96a22.7 22.7 0 0 1 2.4-.36c.48-.67.99-1.31 1.51-1.9Z"/></svg>
                         </template>
                     </project-template>
                 </div>
                 <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-vue" :tags="['ssr','vue']" :count="count('blazor-vue')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor</div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/next-static" :tags="['next','static']" :count="count('next-static')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Next.js Static</div>
                         <template #icon>
-                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 11.697 6.216L4.907 4.21A.5.5 0 0 0 4 4.5V12h1V6.06l5.83 8.162A7.5 7.5 0 0 1 0 7.5ZM10 10V4h1v6h-1Z" clip-rule="evenodd"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/next-rsc" :tags="['next','rsc']" :count="count('next-rsc')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Next.js RSC</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 11.697 6.216L4.907 4.21A.5.5 0 0 0 4 4.5V12h1V6.06l5.83 8.162A7.5 7.5 0 0 1 0 7.5ZM10 10V4h1v6h-1Z" clip-rule="evenodd"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/react-spa" :tags="['react','featured']" :count="count('react-spa')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">React SPA</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85c-1.03 0-1.87-.85-1.87-1.85c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9c-.6 0-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.03 1.11.03 1.71.03c.6 0 1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63c2.54.75 4.37 1.99 4.37 3.68c0 1.69-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63c-1.46.84-3.45-.12-5.37-1.95c-1.92 1.83-3.91 2.79-5.38 1.95c-1.46-.84-1.62-3.05-1-5.63c-2.54-.75-4.37-1.99-4.37-3.68c0-1.69 1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1-5.63c1.47-.84 3.46.12 5.38 1.95c1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26c2.1-.63 3.28-1.53 3.28-2.26c0-.73-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26c-2.1.63-3.28 1.53-3.28 2.26c0 .73 1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26l-.3.51c.31-.05.61-.1.88-.16c-.07-.28-.18-.57-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 2.97 2.08 3.59 1.7c.64-.35.83-1.82.32-3.96c-.77.16-1.58.28-2.4.36c-.48.67-.99 1.31-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16c.07.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 8 3.62 7.37 4c-.63.35-.82 1.82-.31 3.96a22.7 22.7 0 0 1 2.4-.36c.48-.67.99-1.31 1.51-1.9Z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" repo="NetCoreTemplates/nextjs" :tags="['next','featured']" :count="count('nextjs')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Next.js</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 11.697 6.216L4.907 4.21A.5.5 0 0 0 4 4.5V12h1V6.06l5.83 8.162A7.5 7.5 0 0 1 0 7.5ZM10 10V4h1v6h-1Z" clip-rule="evenodd"/></svg>
                         </template>
                     </project-template>
                 </div>
             </div>
-        </div>
+        </div>        
     </section>
+
     <section class="w-full flex flex-col justify-center text-center">
-        <div id="spa" class="mt-4 mb-2">
-            <h3 class="text-gray-400 text-xl mb-2">SPA Templates</h3>
-            <div class="flex flex-wrap justify-center">
+        <div class="mb-4 flex flex-col items-center">
+            <h2 class="my-8 tracking-tight font-semibold text-xl text-slate-600">Tailwind CSS Templates</h2>
+            <div class="flex flex-wrap justify-center gap-x-2">
                 <div>
-                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-wasm" :tags="['ssr','auto']" :count="count('blazor-wasm')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor WASM</div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor" :tags="['server','auth']" :count="count('blazor')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor</div>
                         <template #icon>
-                            <svg class="w-12 h-12 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15Z"></path></svg>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15z" fill="currentColor"></path></svg>
                         </template>
                     </project-template>
                 </div>
                 <div>
-                    <project-template :name="name" repo="NetCoreTemplates/vue-vite" :tags="['autoquery','auth']" :count="count('vue-vite')">
-                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue Vite</div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/blazor-vue" :tags="['vue','auth']" :count="count('blazor-vue')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Blazor Vue</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M23.834 8.101a13.912 13.912 0 0 1-13.643 11.72a10.105 10.105 0 0 1-1.994-.12a6.111 6.111 0 0 1-5.082-5.761a5.934 5.934 0 0 1 11.867-.084c.025.983-.401 1.846-1.277 1.871c-.936 0-1.374-.668-1.374-1.567v-2.5a1.531 1.531 0 0 0-1.52-1.533H8.715a3.648 3.648 0 1 0 2.695 6.08l.073-.11l.074.121a2.58 2.58 0 0 0 2.2 1.048a2.909 2.909 0 0 0 2.695-3.04a7.912 7.912 0 0 0-.217-1.933a7.404 7.404 0 0 0-14.64 1.603a7.497 7.497 0 0 0 7.308 7.405s.549.05 1.167.035a15.803 15.803 0 0 0 8.475-2.528c.036-.025.072.025.048.061a12.44 12.44 0 0 1-9.69 3.963a8.744 8.744 0 0 1-8.9-8.972a9.049 9.049 0 0 1 3.635-7.247a8.863 8.863 0 0 1 5.229-1.726h2.813a7.915 7.915 0 0 0 5.839-2.578a.11.11 0 0 1 .059-.034a.112.112 0 0 1 .12.053a.113.113 0 0 1 .015.067a7.934 7.934 0 0 1-1.227 3.549a.107.107 0 0 0-.014.06a.11.11 0 0 0 .073.095a.109.109 0 0 0 .062.004a8.505 8.505 0 0 0 5.913-4.876a.155.155 0 0 1 .055-.053a.15.15 0 0 1 .147 0a.153.153 0 0 1 .054.053A10.779 10.779 0 0 1 23.834 8.1zM8.895 11.628a2.188 2.188 0 1 0 2.188 2.188v-2.042a.158.158 0 0 0-.15-.15z" fill="currentColor"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor" :tags="['auth','tailwind']" :count="count('razor')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor Pages</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M23.844 27.692a16.332 16.332 0 0 1-6.645 1.3q-6.364 0-10.013-3.243a11.3 11.3 0 0 1-3.649-8.9a13.716 13.716 0 0 1 3.785-9.898A12.716 12.716 0 0 1 16.9 3.008a11.676 11.676 0 0 1 8.425 3.006a9.994 9.994 0 0 1 3.142 7.533a10.187 10.187 0 0 1-2.318 7.114a7.532 7.532 0 0 1-5.817 2.547a2.613 2.613 0 0 1-1.845-.642a2.323 2.323 0 0 1-.764-1.6a4.9 4.9 0 0 1-4.148 2.243a4.6 4.6 0 0 1-3.507-1.479a5.706 5.706 0 0 1-1.384-4.063a9.913 9.913 0 0 1 2.2-6.357q2.2-2.763 4.8-2.763a5.063 5.063 0 0 1 4.256 1.716l.311-1.338h2.405l-2.081 9.08a10.716 10.716 0 0 0-.352 2.243q0 .972.744.972a4.819 4.819 0 0 0 3.877-2.047a8.93 8.93 0 0 0 1.621-5.681a7.98 7.98 0 0 0-2.675-6.175a9.887 9.887 0 0 0-6.919-2.432a10.6 10.6 0 0 0-8.158 3.467a12.066 12.066 0 0 0-3.2 8.495a9.561 9.561 0 0 0 3.06 7.573q3.06 2.7 8.586 2.7a13.757 13.757 0 0 0 5.675-1.054ZM19.466 12.25a3.977 3.977 0 0 0-3.6-1.716q-1.824 0-3.263 2.23a8.726 8.726 0 0 0-1.439 4.824q0 3.635 2.905 3.635a3.771 3.771 0 0 0 2.651-1.183a6.309 6.309 0 0 0 1.7-3.2Z"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/mvc" :tags="['auth','tailwind']" :count="count('mvc')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">MVC</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.5 3v8.5H3V3h8.5zm0 18H3v-8.5h8.5V21zm1-18H21v8.5h-8.5V3zm8.5 9.5V21h-8.5v-8.5H21z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full flex flex-col justify-center text-center">
+        <div class="mb-4 flex flex-col items-center">
+            <h2 class="my-8 tracking-tight font-semibold text-xl text-slate-600">Tailwind SPA Templates</h2>
+            <div class="flex flex-wrap justify-center gap-x-2">
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/vue-static" :tags="['vite','static']" :count="count('vue-static')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue Static</div>
                         <template #icon>
                             <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
                         </template>
                     </project-template>
                 </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/vue-spa" :tags="['vite','featured']" :count="count('vue-spa')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vue SPA</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/angular-spa" :tags="['vite','auth']" :count="count('angular-spa')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Angular SPA</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.5l8.84 3.15l-1.34 11.7L12 21.5l-7.5-4.15l-1.34-11.7L12 2.5m0 2.1L6.47 17h2.06l1.11-2.78h4.7L15.45 17h2.05L12 4.6m1.62 7.9h-3.23L12 8.63l1.62 3.87Z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="w-full flex flex-col justify-center text-center">
+        <div class="mb-4 flex flex-col items-center">
+            <h2 class="my-8 tracking-tight font-semibold text-xl text-slate-600">Markdown, Razor Pages, Vue &amp; React Statically Generated Templates</h2>
+            <div class="flex flex-wrap justify-center gap-x-2">
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor-ssg" :tags="['ssg','markdown']" :count="count('razor-ssg')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor SSG</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M23.844 27.692a16.332 16.332 0 0 1-6.645 1.3q-6.364 0-10.013-3.243a11.3 11.3 0 0 1-3.649-8.9a13.716 13.716 0 0 1 3.785-9.898A12.716 12.716 0 0 1 16.9 3.008a11.676 11.676 0 0 1 8.425 3.006a9.994 9.994 0 0 1 3.142 7.533a10.187 10.187 0 0 1-2.318 7.114a7.532 7.532 0 0 1-5.817 2.547a2.613 2.613 0 0 1-1.845-.642a2.323 2.323 0 0 1-.764-1.6a4.9 4.9 0 0 1-4.148 2.243a4.6 4.6 0 0 1-3.507-1.479a5.706 5.706 0 0 1-1.384-4.063a9.913 9.913 0 0 1 2.2-6.357q2.2-2.763 4.8-2.763a5.063 5.063 0 0 1 4.256 1.716l.311-1.338h2.405l-2.081 9.08a10.716 10.716 0 0 0-.352 2.243q0 .972.744.972a4.819 4.819 0 0 0 3.877-2.047a8.93 8.93 0 0 0 1.621-5.681a7.98 7.98 0 0 0-2.675-6.175a9.887 9.887 0 0 0-6.919-2.432a10.6 10.6 0 0 0-8.158 3.467a12.066 12.066 0 0 0-3.2 8.495a9.561 9.561 0 0 0 3.06 7.573q3.06 2.7 8.586 2.7a13.757 13.757 0 0 0 5.675-1.054ZM19.466 12.25a3.977 3.977 0 0 0-3.6-1.716q-1.824 0-3.263 2.23a8.726 8.726 0 0 0-1.439 4.824q0 3.635 2.905 3.635a3.771 3.771 0 0 0 2.651-1.183a6.309 6.309 0 0 0 1.7-3.2Z"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" :mix="mixTags" repo="NetCoreTemplates/razor-press" :tags="['ssg','markdown']" :count="count('razor-press')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Razor Press</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6v13m9-13v13m9-13v13"></path></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" repo="ServiceStack/press-vue" :tags="['static','markdown']" :count="count('press-vue')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vite Vue</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h3.5L12 15l6.5-12H22L12 21L2 3m4.5 0h3L12 7.58L14.5 3h3L12 13.08L6.5 3Z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+                <div>
+                    <project-template :name="name" repo="ServiceStack/press-react" :tags="['static','markdown']" :count="count('press-react')">
+                        <div class="mb-3 text-xl font-medium text-gray-700 dark:text-gray-200">Vite React</div>
+                        <template #icon>
+                            <svg class="w-12 h-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10.11c1.03 0 1.87.84 1.87 1.89c0 1-.84 1.85-1.87 1.85c-1.03 0-1.87-.85-1.87-1.85c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7c-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5l-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9c-.6 0-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47c.54.03 1.11.03 1.71.03c.6 0 1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7c.52.59 1.03 1.23 1.51 1.9c.82.08 1.63.2 2.4.36c.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86c-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63c2.54.75 4.37 1.99 4.37 3.68c0 1.69-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63c-1.46.84-3.45-.12-5.37-1.95c-1.92 1.83-3.91 2.79-5.38 1.95c-1.46-.84-1.62-3.05-1-5.63c-2.54-.75-4.37-1.99-4.37-3.68c0-1.69 1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1-5.63c1.47-.84 3.46.12 5.38 1.95c1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26c2.1-.63 3.28-1.53 3.28-2.26c0-.73-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26c-2.1.63-3.28 1.53-3.28 2.26c0 .73 1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26l-.3.51c.31-.05.61-.1.88-.16c-.07-.28-.18-.57-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 2.97 2.08 3.59 1.7c.64-.35.83-1.82.32-3.96c-.77.16-1.58.28-2.4.36c-.48.67-.99 1.31-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16c.07.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 8 3.62 7.37 4c-.63.35-.82 1.82-.31 3.96a22.7 22.7 0 0 1 2.4-.36c.48-.67.99-1.31 1.51-1.9Z"/></svg>
+                        </template>
+                    </project-template>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <div class="flex justify-center mt-32">
@@ -210,8 +292,8 @@ mountAll()
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">November 22, 2023</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vue</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -244,7 +326,7 @@ Blazor .NET 8 with <strong>Tailwind CSS</strong> styling for creating beautiful 
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">November 21, 2023</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -275,9 +357,9 @@ Deployments - enabling a simple ready-made CI solution for deployment to any Lin
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">March 29, 2023</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">razor-pages</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> ssg</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> codespaces</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">ssg</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">codespaces</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -341,8 +423,8 @@ can be hosted for FREE on GitHub Pages CDN.</p>
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">February 1, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vite</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> jamstack</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vite</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">jamstack</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -432,9 +514,9 @@ frontend and backend changes.</p>
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">July 6, 2021</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">razor-pages</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> mvc</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> vue</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">mvc</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">vue</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -447,7 +529,7 @@ frontend and backend changes.</p>
                                             <p>ServiceStack templates provide a wide range of options when it comes to using Razor Pages in your .NET application</p>
 <p>These templates come with Tailwind, JS Modules, and Vue components already built-in,
 making it easy to build hybrid apps containing both Server-Side Rendering (SSR) and static resources</p>
-<h3 id="live-demos">Live Demos<a class="header-anchor" href="javascript:;" onclick="location.hash='#live-demos'" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
+<h3 id="live-demos">Live Demos<a class="header-anchor" href="#live-demos" aria-label="Permalink">&ZeroWidthSpace;</a></h3>
 <ul>
 <li><a href="https://blazor-vue.web-templates.io">https://blazor-vue.web-templates.io</a></li>
 <li><a href="https://razor.web-templates.io">https://razor.web-templates.io</a></li>
@@ -488,8 +570,8 @@ making it easy to build hybrid apps containing both Server-Side Rendering (SSR) 
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">May 19, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">wasm</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -521,8 +603,8 @@ thanks to the shared C# language, Visual Studio Hot Reload, and ServiceStack's m
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">July 25, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">wasm</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -553,8 +635,8 @@ pre-defined CSS styles, enabling developers to create modern and responsive desi
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">October 11, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> components</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">components</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -586,9 +668,9 @@ you how to leverage their features to create high-performing, intuitive applicat
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">December 7, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> darkmode</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> components</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">darkmode</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">components</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -619,8 +701,8 @@ ServiceStack's message-based design, providing a simplified and intuitive develo
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">December 12, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> admin</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">admin</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -651,8 +733,8 @@ managing the application data, with minimal coding required.</p>
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">January 4, 2023</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> server</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> tailwind</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">server</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">tailwind</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -683,8 +765,8 @@ process and reduce the amount of code they need to write, making it easier to bu
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">August 11, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> litestream</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">wasm</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">litestream</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -715,8 +797,8 @@ developers can ensure data integrity and reduce the risk of data loss in the eve
                                 <div class="flex items-center gap-x-4 text-xs">
                                     <time datetime="2020-03-16" class="text-gray-500">January 26, 2022</time>
                                         <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">blazor</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> wasm</span>
-                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300"> bootstrap</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">wasm</span>
+                                        <span class="relative z-10 rounded-full bg-gray-50 dark:bg-gray-900 py-1.5 px-3 font-medium text-gray-600 dark:text-gray-300">bootstrap</span>
                                 </div>
                                 <div class="group relative max-w-xl">
                                     <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -917,25 +999,25 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
         <section>
             <div class="mb-8 md:mb-16">
                 <div class="sm:mx-0">
-                    <a aria-label="New Blogging features in Razor SSG" href="posts/razor-ssg-new-blog-features">
-                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&amp;fit=crop&amp;h=1000&amp;w=2000" alt="Cover Image for New Blogging features in Razor SSG" class="shadow-sm hover:shadow-2xl transition-shadow duration-200">
+                    <a aria-label="Replacing Legacy UIs in an AI-First world" href="posts/replacing-legacy-uis">
+                        <img src="https://servicestack.net/img/posts/replacing-legacy-uis/bg.webp" alt="Cover Image for Replacing Legacy UIs in an AI-First world" class="shadow-sm hover:shadow-2xl transition-shadow duration-200">
                     </a>
                 </div>
             </div>
             <div class="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
                 <div>
                     <h3 class="mb-4 text-4xl lg:text-6xl leading-tight">
-                        <a class="hover:underline" href="posts/razor-ssg-new-blog-features">New Blogging features in Razor SSG</a>
+                        <a class="hover:underline" href="posts/replacing-legacy-uis">Replacing Legacy UIs in an AI-First world</a>
                     </h3>
                     <div class="mb-4 md:mb-0 text-lg">
-                        <time datetime="2023-08-23T00:00:00.0000000">August 23, 2023</time>
+                        <time datetime="2025-12-07T00:00:00.0000000">December 7, 2025</time>
                     </div>
                 </div>
                 <div>
-                    <p class="text-lg leading-relaxed mb-4">Explore the new Blogging Features in Razor SSG</p>
-                        <a class="flex items-center text-xl font-bold" href="posts/author/demis-bellot">
-                            <img src="/img/authors/demis.jpg" class="w-12 h-12 rounded-full mr-4" alt="Author">
-                            <span>Demis Bellot</span>
+                    <p class="text-lg leading-relaxed mb-4">Rewriting legacy UIs on modern AI-First stacks are now cheaper and faster than traditional development.</p>
+                        <a class="flex items-center text-xl font-bold" href="posts/author/brandon-foley">
+                            <img src="img/authors/author3.svg" class="w-12 h-12 rounded-full mr-4" alt="Author">
+                            <span>Brandon Foley</span>
                         </a>
                 </div>
             </div>
@@ -945,8 +1027,8 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
             <div class="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
                     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                         <div class="flex-shrink-0">
-                            <a href="posts/razor-press">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1681301968680-fe46a0cd51be?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                            <a href="posts/angular-template">
+                                <img class="h-48 w-full object-cover" src="https://servicestack.net/img/posts/angular-spa/bg.webp" alt="">
                             </a>
                         </div>
                         <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
@@ -954,132 +1036,24 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                                 <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
                                     Article
                                 </p>
-                                <a href="posts/razor-press" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Introducing Razor Press</p>
-                                    <p class="mt-3 text-base text-gray-500">Markdown &amp; Razor Pages Static Site Generator for beautiful fast Content &amp; Documentation</p>
+                                <a href="posts/angular-template" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">New .NET 10 &#x2B; Angular 21 ASP.NET Identity Auth Tailwind SPA Template</p>
+                                    <p class="mt-3 text-base text-gray-500">Introducing our new Angular 19 IdentityAuth Tailwind Template with DarkMode and support for RxJS and Signals dev models</p>
                                 </a>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <div class="flex-shrink-0">
                                     <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Introducing Razor Press background">
+                                        <span class="sr-only">Lucy Bates</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="New .NET 10 &#x2B; Angular 21 ASP.NET Identity Auth Tailwind SPA Template background">
                                     </span>
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
+                                            <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
                                     </p>
                                     <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-07-17T00:00:00.0000000">July 17, 2023</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>5 min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <a href="posts/vue-stable-diffusion">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1573490647695-2892d0bf89e7?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
-                            </a>
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
-                                    Article
-                                </p>
-                                <a href="posts/vue-stable-diffusion" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Vue Stable Diffusion</p>
-                                    <p class="mt-3 text-base text-gray-500">Rewriting Blazor Diffussion image generation &amp; album catalog in Vue &amp; Razor SSG</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Vue Stable Diffusion background">
-                                    </span>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-06-15T00:00:00.0000000">June 15, 2023</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>5 min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <a href="posts/creatorkit">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
-                            </a>
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
-                                    Article
-                                </p>
-                                <a href="posts/creatorkit" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Introducing CreatorKit</p>
-                                    <p class="mt-3 text-base text-gray-500">Exploring CreatorKit - an OSS Self-Hosting alternative to Mailchimp and Disqus</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Introducing CreatorKit background">
-                                    </span>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-06-08T00:00:00.0000000">June 8, 2023</time>
-                                        <span aria-hidden="true">&middot;</span>
-                                        <span>6 min read</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                        <div class="flex-shrink-0">
-                            <a href="posts/razor-ssg">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1579767684138-a57e917d30aa?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
-                            </a>
-                        </div>
-                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
-                                    Article
-                                </p>
-                                <a href="posts/razor-ssg" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Introducing Razor SSG</p>
-                                    <p class="mt-3 text-base text-gray-500">Create fast, beautiful statically rendered Razor Websites &amp; Blogs</p>
-                                </a>
-                            </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Introducing Razor SSG background">
-                                    </span>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
-                                    </p>
-                                    <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-03-28T00:00:00.0000000">March 28, 2023</time>
+                                        <time datetime="2025-12-05T00:00:00.0000000">December 5, 2025</time>
                                         <span aria-hidden="true">&middot;</span>
                                         <span>14 min read</span>
                                     </div>
@@ -1089,8 +1063,8 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                     </div>
                     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                         <div class="flex-shrink-0">
-                            <a href="posts/javascript">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                            <a href="posts/vibecode-react-templates">
+                                <img class="h-48 w-full object-cover" src="https://servicestack.net/img/posts/vibecode-react-templates/bg.webp" alt="">
                             </a>
                         </div>
                         <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
@@ -1098,26 +1072,26 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                                 <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
                                     Article
                                 </p>
-                                <a href="posts/javascript" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Simple, Modern JavaScript</p>
-                                    <p class="mt-3 text-base text-gray-500">Learn about JS Modules, Vue 3 and available rich UI Components</p>
+                                <a href="posts/vibecode-react-templates" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">New Vibe Codable .NET 10 React Templates</p>
+                                    <p class="mt-3 text-base text-gray-500">Exploring the new Vibe Codable .NET 10 React Templates and their NodeProxy architecture</p>
                                 </a>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <div class="flex-shrink-0">
                                     <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Simple, Modern JavaScript background">
+                                        <span class="sr-only">Gayle Smith</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="New Vibe Codable .NET 10 React Templates background">
                                     </span>
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
+                                            <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
                                     </p>
                                     <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-02-01T00:00:00.0000000">February 1, 2023</time>
+                                        <time datetime="2025-12-04T00:00:00.0000000">December 4, 2025</time>
                                         <span aria-hidden="true">&middot;</span>
-                                        <span>15 min read</span>
+                                        <span>8 min read</span>
                                     </div>
                                 </div>
                             </div>
@@ -1125,8 +1099,8 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                     </div>
                     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
                         <div class="flex-shrink-0">
-                            <a href="posts/rider">
-                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                            <a href="posts/openapi-net10">
+                                <img class="h-48 w-full object-cover" src="https://servicestack.net/img/posts/openapi-net10/bg.webp" alt="">
                             </a>
                         </div>
                         <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
@@ -1134,24 +1108,132 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                                 <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
                                     Article
                                 </p>
-                                <a href="posts/rider" class="mt-2 block">
-                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Develop using JetBrains Rider</p>
-                                    <p class="mt-3 text-base text-gray-500">Setting up &amp; exploring development workflow in Rider</p>
+                                <a href="posts/openapi-net10" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">.NET 10&#x27;s new OpenAPI Scalar &#x2B; Swagger UIs</p>
+                                    <p class="mt-3 text-base text-gray-500">ServiceStack v10 adds first-class .NET 10 support and new OpenAPI for Swagger and Scalar UIs.</p>
                                 </a>
                             </div>
                             <div class="mt-6 flex items-center">
                                 <div class="flex-shrink-0">
                                     <span>
-                                        <span class="sr-only">Demis Bellot</span>
-                                        <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Develop using JetBrains Rider background">
+                                        <span class="sr-only">Brandon Foley</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt=".NET 10&#x27;s new OpenAPI Scalar &#x2B; Swagger UIs background">
                                     </span>
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-900">
-                                            <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
+                                            <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
                                     </p>
                                     <div class="flex space-x-1 text-sm text-gray-500">
-                                        <time datetime="2023-01-11T00:00:00.0000000">January 11, 2023</time>
+                                        <time datetime="2025-12-03T00:00:00.0000000">December 3, 2025</time>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>4 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                        <div class="flex-shrink-0">
+                            <a href="posts/ai-chat-explorer">
+                                <img class="h-48 w-full object-cover" src="https://servicestack.net/img/posts/ai-chat-explorer/bg.webp" alt="">
+                            </a>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+                                    Article
+                                </p>
+                                <a href="posts/ai-chat-explorer" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Creating a custom Explorer UI for OpenAIs Chat API</p>
+                                    <p class="mt-3 text-base text-gray-500">Learning how to create a customized API Explorer API UIs like ChatCompletion&#x27;s UI</p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center">
+                                <div class="flex-shrink-0">
+                                    <span>
+                                        <span class="sr-only">Lucy Bates</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="Creating a custom Explorer UI for OpenAIs Chat API background">
+                                    </span>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">
+                                            <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
+                                    </p>
+                                    <div class="flex space-x-1 text-sm text-gray-500">
+                                        <time datetime="2025-11-25T00:00:00.0000000">November 25, 2025</time>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>9 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                        <div class="flex-shrink-0">
+                            <a href="posts/ai-chat-servicestack">
+                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1640011655323-a14d80feac25?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                            </a>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+                                    Article
+                                </p>
+                                <a href="posts/ai-chat-servicestack" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">FREE Gemini, Minimax M2, GLM 4.6, Kimi K2</p>
+                                    <p class="mt-3 text-base text-gray-500">The best OSS language models, now available for FREE in AI Chat!</p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center">
+                                <div class="flex-shrink-0">
+                                    <span>
+                                        <span class="sr-only">Gayle Smith</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="FREE Gemini, Minimax M2, GLM 4.6, Kimi K2 background">
+                                    </span>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">
+                                            <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
+                                    </p>
+                                    <div class="flex space-x-1 text-sm text-gray-500">
+                                        <time datetime="2025-11-21T00:00:00.0000000">November 21, 2025</time>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>4 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                        <div class="flex-shrink-0">
+                            <a href="posts/ai-chat-analytics">
+                                <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                            </a>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between bg-white dark:bg-black p-6">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-indigo-600 dark:text-indigo-300">
+                                    Article
+                                </p>
+                                <a href="posts/ai-chat-analytics" class="mt-2 block">
+                                    <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">AI Chat history persistence and Admin Analytics UI</p>
+                                    <p class="mt-3 text-base text-gray-500">Maintain a persistant history of all AI Chat requests and responses</p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center">
+                                <div class="flex-shrink-0">
+                                    <span>
+                                        <span class="sr-only">Brandon Foley</span>
+                                        <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="AI Chat history persistence and Admin Analytics UI background">
+                                    </span>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">
+                                            <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
+                                    </p>
+                                    <div class="flex space-x-1 text-sm text-gray-500">
+                                        <time datetime="2025-11-20T00:00:00.0000000">November 20, 2025</time>
                                         <span aria-hidden="true">&middot;</span>
                                         <span>3 min read</span>
                                     </div>
@@ -1167,32 +1249,32 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                         <div class="border-b pb-4 mb-4">
                             <div class="flex justify-between">
                                 <div class="w-3/4">
-                                    <a href="posts/vs" class="mt-2 block">
-                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Develop using Visual Studio</p>
-                                        <p class="mt-3 text-base text-gray-500">Exploring development workflow in VS Code and Visual Studio .NET</p>
+                                    <a href="posts/ai-chat" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">AI Chat - A Simple OpenAI Chat Completions API, UI &amp; Client LLM Gateway</p>
+                                        <p class="mt-3 text-base text-gray-500">Unlock the value of OpenAI Chat APIs using a simple, serializable ChatCompletion DTO that works everywhere</p>
                                     </a>
                                     <div class="mt-6 flex items-center">
                                         <div class="flex-shrink-0">
                                             <span>
-                                                <span class="sr-only">Demis Bellot</span>
-                                                <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Develop using Visual Studio background">
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="AI Chat - A Simple OpenAI Chat Completions API, UI &amp; Client LLM Gateway background">
                                             </span>
                                         </div>
                                         <div class="ml-3">
                                             <p class="text-sm font-medium text-gray-900">
-                                                    <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
                                             </p>
                                             <div class="flex space-x-1 text-sm text-gray-500">
-                                                <time datetime="2023-01-10T00:00:00.0000000">January 10, 2023</time>
+                                                <time datetime="2025-11-17T00:00:00.0000000">November 17, 2025</time>
                                                 <span aria-hidden="true">&middot;</span>
-                                                <span>6 min read</span>
+                                                <span>16 min read</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-1/4">
-                                    <a href="posts/vs" class="pt-4">
-                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    <a href="posts/ai-chat" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/ai-chat/bg.webp" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -1200,32 +1282,32 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                         <div class="border-b pb-4 mb-4">
                             <div class="flex justify-between">
                                 <div class="w-3/4">
-                                    <a href="posts/jamstacks_hosting" class="mt-2 block">
-                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Jamstack Hosting Costs @ $.40 /mo</p>
-                                        <p class="mt-3 text-base text-gray-500">Exploring cost &amp; scalability benefits of hybrid CDN &amp; .NET Apps</p>
+                                    <a href="posts/react" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">React &#x2B; Tailwind &#x2B; TypeScript for AI-First Development</p>
+                                        <p class="mt-3 text-base text-gray-500">First-class React support optimized for AI-assisted development with new React component library &amp; project templates</p>
                                     </a>
                                     <div class="mt-6 flex items-center">
                                         <div class="flex-shrink-0">
                                             <span>
-                                                <span class="sr-only">Demis Bellot</span>
-                                                <img class="h-10 w-10 rounded-full" src="/img/authors/demis.jpg" alt="Jamstack Hosting Costs @ $.40 /mo background">
+                                                <span class="sr-only">Gayle Smith</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="React &#x2B; Tailwind &#x2B; TypeScript for AI-First Development background">
                                             </span>
                                         </div>
                                         <div class="ml-3">
                                             <p class="text-sm font-medium text-gray-900">
-                                                    <a href="posts/author/demis-bellot" class="hover:underline">Demis Bellot</a>
+                                                    <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
                                             </p>
                                             <div class="flex space-x-1 text-sm text-gray-500">
-                                                <time datetime="2023-01-02T00:00:00.0000000">January 2, 2023</time>
+                                                <time datetime="2025-11-13T00:00:00.0000000">November 13, 2025</time>
                                                 <span aria-hidden="true">&middot;</span>
-                                                <span>14 min read</span>
+                                                <span>9 min read</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-1/4">
-                                    <a href="posts/jamstacks_hosting" class="pt-4">
-                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1506399309177-3b43e99fead2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    <a href="posts/react" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/react/bg.webp" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -1233,23 +1315,23 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                         <div class="border-b pb-4 mb-4">
                             <div class="flex justify-between">
                                 <div class="w-3/4">
-                                    <a href="posts/deploy" class="mt-2 block">
-                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Deployment with GitHub Actions</p>
-                                        <p class="mt-3 text-base text-gray-500">Configuring your GitHub repo for SSH and CDN deployments</p>
+                                    <a href="posts/typesense-ai-search" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Ask ServiceStack Docs - Introducing AI Search</p>
+                                        <p class="mt-3 text-base text-gray-500">Learn about the new AI Search feature - Typesense Conversational RAG for ServiceStack Docs</p>
                                     </a>
                                     <div class="mt-6 flex items-center">
                                         <div class="flex-shrink-0">
                                             <span>
-                                                <span class="sr-only">Darren Reid</span>
-                                                <img class="h-10 w-10 rounded-full" src="/img/authors/darren.jpg" alt="Deployment with GitHub Actions background">
+                                                <span class="sr-only">Brandon Foley</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="Ask ServiceStack Docs - Introducing AI Search background">
                                             </span>
                                         </div>
                                         <div class="ml-3">
                                             <p class="text-sm font-medium text-gray-900">
-                                                    <a href="posts/author/darren-reid" class="hover:underline">Darren Reid</a>
+                                                    <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
                                             </p>
                                             <div class="flex space-x-1 text-sm text-gray-500">
-                                                <time datetime="2023-01-01T00:00:00.0000000">January 1, 2023</time>
+                                                <time datetime="2025-11-12T00:00:00.0000000">November 12, 2025</time>
                                                 <span aria-hidden="true">&middot;</span>
                                                 <span>4 min read</span>
                                             </div>
@@ -1257,8 +1339,8 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                                     </div>
                                 </div>
                                 <div class="w-1/4">
-                                    <a href="posts/deploy" class="pt-4">
-                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    <a href="posts/typesense-ai-search" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/typesense-ai-search/bg.webp" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -1266,32 +1348,395 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                         <div class="border-b pb-4 mb-4">
                             <div class="flex justify-between">
                                 <div class="w-3/4">
-                                    <a href="posts/hetzner-cloud" class="mt-2 block">
-                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">In pursuit of the best value US cloud provider</p>
-                                        <p class="mt-3 text-base text-gray-500">We&#x27;ve been using AWS at ServiceStack for 10&#x2B; years, it&#x27;s served us well but suffers from complex &amp; expensive pricing</p>
+                                    <a href="posts/apikey_auth_apis" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Protect same APIs with API Keys or Identity Auth</p>
+                                        <p class="mt-3 text-base text-gray-500">Learn how to create ServiceStack APIs that can be protected with API Keys or Identity Auth</p>
                                     </a>
                                     <div class="mt-6 flex items-center">
                                         <div class="flex-shrink-0">
                                             <span>
-                                                <span class="sr-only">Darren Reid</span>
-                                                <img class="h-10 w-10 rounded-full" src="/img/authors/darren.jpg" alt="In pursuit of the best value US cloud provider background">
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="Protect same APIs with API Keys or Identity Auth background">
                                             </span>
                                         </div>
                                         <div class="ml-3">
                                             <p class="text-sm font-medium text-gray-900">
-                                                    <a href="posts/author/darren-reid" class="hover:underline">Darren Reid</a>
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
                                             </p>
                                             <div class="flex space-x-1 text-sm text-gray-500">
-                                                <time datetime="2022-09-06T00:00:00.0000000">September 6, 2022</time>
+                                                <time datetime="2025-10-27T00:00:00.0000000">October 27, 2025</time>
                                                 <span aria-hidden="true">&middot;</span>
-                                                <span>13 min read</span>
+                                                <span>4 min read</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-1/4">
-                                    <a href="posts/hetzner-cloud" class="pt-4">
-                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    <a href="posts/apikey_auth_apis" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/identityauth-claims-roles/bg.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/rdbms_jobs" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">RDBMS Background Jobs</p>
+                                        <p class="mt-3 text-base text-gray-500">Run Background Jobs and Scheduled Tasks in PostgreSQL, SQL Server or MySQL</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Gayle Smith</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="RDBMS Background Jobs background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2025-10-23T00:00:00.0000000">October 23, 2025</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>23 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/rdbms_jobs" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/background-jobs/bg.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/rdbms_analytics" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">In Depth Interactive API Analytics for PostgreSQL, SQL Server &amp; MySQL</p>
+                                        <p class="mt-3 text-base text-gray-500">Comprehensive and Interactive RDBMS API Analytics in Admin UI, deep insights into API usage, performance, users, API Keys &amp; IPs</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Brandon Foley</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="In Depth Interactive API Analytics for PostgreSQL, SQL Server &amp; MySQL background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2025-10-21T00:00:00.0000000">October 21, 2025</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>9 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/rdbms_analytics" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/analytics/bg.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/ormlite-async-task-builder" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">RDBMS Async Tasks Builder</p>
+                                        <p class="mt-3 text-base text-gray-500">Effortlessly run multiple async DB Requests in parallel with OrmLite&#x27;s new Async Tasks Builder</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="RDBMS Async Tasks Builder background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2025-10-20T00:00:00.0000000">October 20, 2025</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>4 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/ormlite-async-task-builder" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/ormlite-async-task-builder/bg.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/ormlite-new-configuration" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">OrmLite new Configuration Model and Defaults</p>
+                                        <p class="mt-3 text-base text-gray-500">Learn about OrmLite&#x27;s new fluent Configuration Model, new defaults &amp; features</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Brandon Foley</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="OrmLite new Configuration Model and Defaults background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2025-10-15T00:00:00.0000000">October 15, 2025</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>11 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/ormlite-new-configuration" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://servicestack.net/img/posts/ormlite-new-configuration/bg.webp" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/razor-ssg-podcasts" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Podcasts now in Razor SSG</p>
+                                        <p class="mt-3 text-base text-gray-500">Razor SSG now includes support for Podcasts</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Gayle Smith</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="Podcasts now in Razor SSG background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-10-02T00:00:00.0000000">October 2, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>5 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/razor-ssg-podcasts" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1482442120256-9c03866de390?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/jwt-identity-auth" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">ASP.NET Core JWT Identity Auth</p>
+                                        <p class="mt-3 text-base text-gray-500">Learn about integration and value added features of ASP.NET Core JWT Identity Auth</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Brandon Foley</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="ASP.NET Core JWT Identity Auth background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-02-11T00:00:00.0000000">February 11, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>5 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/jwt-identity-auth" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1618482914248-29272d021005?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/identity-auth-admin-ui" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">Built-In Identity Auth Admin UI</p>
+                                        <p class="mt-3 text-base text-gray-500">Explore the new Identity Auth Admin UI for creating and managing Identity Auth users in .NET 8</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="Built-In Identity Auth Admin UI background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-02-10T00:00:00.0000000">February 10, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>3 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/identity-auth-admin-ui" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1563920443079-783e5c786b83?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/system-text-json-apis" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">System.Text.Json ServiceStack APIs</p>
+                                        <p class="mt-3 text-base text-gray-500">ServiceStack .NET 8&#x2B; APIs can now be configured to use high-performance async System.Text.Json serialization</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Gayle Smith</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author2.svg" alt="System.Text.Json ServiceStack APIs background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/gayle-smith" class="hover:underline">Gayle Smith</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-02-09T00:00:00.0000000">February 9, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>5 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/system-text-json-apis" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1644325349124-d1756b79dd42?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/openapi-v3" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">OpenAPI v3 and Swagger UI</p>
+                                        <p class="mt-3 text-base text-gray-500">A walkthrough of the new OpenAPI v3 support in ServiceStack 8.1</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Brandon Foley</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author3.svg" alt="OpenAPI v3 and Swagger UI background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/brandon-foley" class="hover:underline">Brandon Foley</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-02-08T00:00:00.0000000">February 8, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>6 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/openapi-v3" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1496478981722-3ae516118a04?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/servicestack-endpoint-routing" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">ServiceStack Endpoint Routing</p>
+                                        <p class="mt-3 text-base text-gray-500">ServiceStack .NET 8 is now more integrated then ever with support for ASP.NET Core Endpoint Routing and IOC</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="ServiceStack Endpoint Routing background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2024-02-07T00:00:00.0000000">February 7, 2024</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>15 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/servicestack-endpoint-routing" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1510022151265-1bb84d406531?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex justify-between">
+                                <div class="w-3/4">
+                                    <a href="posts/razor-ssg-new-blog-features" class="mt-2 block">
+                                        <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">New Blogging features in Razor SSG</p>
+                                        <p class="mt-3 text-base text-gray-500">Explore the new Blogging Features in Razor SSG</p>
+                                    </a>
+                                    <div class="mt-6 flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <span>
+                                                <span class="sr-only">Lucy Bates</span>
+                                                <img class="h-10 w-10 rounded-full" src="img/authors/author1.svg" alt="New Blogging features in Razor SSG background">
+                                            </span>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                    <a href="posts/author/lucy-bates" class="hover:underline">Lucy Bates</a>
+                                            </p>
+                                            <div class="flex space-x-1 text-sm text-gray-500">
+                                                <time datetime="2023-08-23T00:00:00.0000000">August 23, 2023</time>
+                                                <span aria-hidden="true">&middot;</span>
+                                                <span>6 min read</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/4">
+                                    <a href="posts/razor-ssg-new-blog-features" class="pt-4">
+                                        <img class="w-full object-cover max-h-[130px]" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=420&amp;q=80" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -1311,31 +1756,38 @@ through the use of JavaScript Modules, Tailwind, Vue.js, Razor Pages, and Servic
                         <div class="p-4">
                             <ul role="list">
     <li class="flex">
-        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="https://twitter.com/ServiceStack">
+        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="about#">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
                 <path d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"></path>
             </svg><span class="ml-4">Follow on Twitter</span>
         </a>
     </li>
     <li class="mt-4 flex">
-        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="https://github.com/ServiceStack">
+        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="about#">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
+                <path d="M12 3c-2.444 0-2.75.01-3.71.054-.959.044-1.613.196-2.185.418A4.412 4.412 0 0 0 4.51 4.511c-.5.5-.809 1.002-1.039 1.594-.222.572-.374 1.226-.418 2.184C3.01 9.25 3 9.556 3 12s.01 2.75.054 3.71c.044.959.196 1.613.418 2.185.23.592.538 1.094 1.039 1.595.5.5 1.002.808 1.594 1.038.572.222 1.226.374 2.184.418C9.25 20.99 9.556 21 12 21s2.75-.01 3.71-.054c.959-.044 1.613-.196 2.185-.419a4.412 4.412 0 0 0 1.595-1.038c.5-.5.808-1.002 1.038-1.594.222-.572.374-1.226.418-2.184.044-.96.054-1.267.054-3.711s-.01-2.75-.054-3.71c-.044-.959-.196-1.613-.419-2.185A4.412 4.412 0 0 0 19.49 4.51c-.5-.5-1.002-.809-1.594-1.039-.572-.222-1.226-.374-2.184-.418C14.75 3.01 14.444 3 12 3Zm0 1.622c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.67.31.421.163.72.358 1.036.673.315.315.51.615.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.67-.163.421-.358.72-.673 1.036a2.79 2.79 0 0 1-1.035.673c-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.67-.31a2.789 2.789 0 0 1-1.036-.673 2.79 2.79 0 0 1-.673-1.035c-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.67.163-.421.358-.72.673-1.036.315-.315.615-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052Z"></path><path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm0-7.622a4.622 4.622 0 1 0 0 9.244 4.622 4.622 0 0 0 0-9.244Zm5.884-.182a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0Z"></path>
+            </svg><span class="ml-4">Follow on Instagram</span>
+        </a>
+    </li>
+    <li class="mt-4 flex">
+        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="about#">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.475 2 2 6.588 2 12.253c0 4.537 2.862 8.369 6.838 9.727.5.09.687-.218.687-.487 0-.243-.013-1.05-.013-1.91C7 20.059 6.35 18.957 6.15 18.38c-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.538 1.051.9 1.551 2.338 1.116 2.912.846.088-.666.35-1.115.638-1.371-2.225-.256-4.55-1.14-4.55-5.062 0-1.115.387-2.038 1.025-2.756-.1-.256-.45-1.307.1-2.717 0 0 .837-.269 2.75 1.051.8-.23 1.65-.346 2.5-.346.85 0 1.7.115 2.5.346 1.912-1.333 2.75-1.05 2.75-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.562 5.062.362.32.675.936.675 1.897 0 1.371-.013 2.473-.013 2.82 0 .268.188.589.688.486a10.039 10.039 0 0 0 4.932-3.74A10.447 10.447 0 0 0 22 12.253C22 6.588 17.525 2 12 2Z"></path>
             </svg><span class="ml-4">Follow on GitHub</span>
         </a>
     </li>
     <li class="mt-4 flex">
-        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="https://www.linkedin.com/company/servicestack-inc">
+        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="about#">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
                 <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"></path>
             </svg><span class="ml-4">Follow on LinkedIn</span>
         </a>
     </li>
     <li class="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
-        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="mailto:team@servicestack.net">
+        <a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="mailto:spencer@planetaria.tech">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
                 <path fill-rule="evenodd" d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"></path>
-            </svg><span class="ml-4">team@servicestack.net</span>
+            </svg><span class="ml-4">spencer@planetaria.tech</span>
         </a>
     </li>
 </ul>
@@ -1421,7 +1873,7 @@ mount('#app', App)
   <div class="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
     <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
       <div class="pb-6">
-        <a href="videos" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">Videos</a>
+        <a href="whatsnew" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">What's New</a>
       </div>
 
       <div class="pb-6">
@@ -1433,32 +1885,51 @@ mount('#app', App)
       </div>
 
       <div class="pb-6">
+        <a href="speaking" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">Speaking</a>
+      </div>
+
+      <div class="pb-6">
+        <a href="uses" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">Uses</a>
+      </div>
+
+      <div class="pb-6">
+        <a href="about" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">About</a>
+      </div>
+
+      <div class="pb-6">
         <a href="privacy" class="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:hover:text-gray-50">Privacy</a>
       </div>
     </nav>
     <div class="mt-10 flex justify-center space-x-10">
-      <a href="https://https://twitter.com/ServiceStack" class="text-gray-400 hover:text-gray-500">
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Facebook</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Instagram</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+
+      <a href="#" class="text-gray-400 hover:text-gray-500">
         <span class="sr-only">Twitter</span>
         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
         </svg>
       </a>
 
-      <a href="https://github.com/ServiceStack/ServiceStack/" class="text-gray-400 hover:text-gray-500">
+      <a href="#" class="text-gray-400 hover:text-gray-500">
         <span class="sr-only">GitHub</span>
         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
         </svg>
       </a>
 
-      <a href="https://www.linkedin.com/company/servicestack-inc/" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">Linked In</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"></path>
-        </svg>
-      </a>
-
-      <a href="https://www.youtube.com/channel/UC0kXKGVU4NHcwNdDdRiAJSA" class="text-gray-400 hover:text-gray-500">
+      <a href="#" class="text-gray-400 hover:text-gray-500">
         <span class="sr-only">YouTube</span>
         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"/>
@@ -1470,6 +1941,23 @@ mount('#app', App)
     </p>
   </div>
 </footer>
+
+<script type="module">
+//TODO: Replace with local and production URLs of CreatorKit .NET App or Remove if not using CreatorKit
+import { mail } from 'https://creatorkit.netcore.io/mjs/components/mail.mjs'
+import { post } from 'https://creatorkit.netcore.io/mjs/components/post.mjs'
+
+mail('[data-mail]', { 
+    mailingLists: ['MonthlyNewsletter'] 
+})
+
+post('[data-post]', {
+    commentLink: { 
+        href: '/community-rules',
+        label: 'read the community rules'
+    } 
+})
+</script>
 
 
 <script type="module">
